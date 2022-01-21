@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -139,7 +138,7 @@ main {
 
 /* Modal form */
 
-.button {
+  .btn-close {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -149,13 +148,13 @@ main {
   font-size: 16px;
 }
 
-.button:hover {
+.btn-close:hover {
   background: #3876ac;
 }
 
-.smFont {
+/* .smFont {
   font-size: 16px;
-}
+}  */
 
 .bground {
   display: none;
@@ -173,6 +172,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  min-height: 850px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -181,12 +181,14 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
 }
+
 
 label {
   font-family: var(--font-default);
@@ -208,7 +210,10 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+p.help{
+  font-size: 11px;
+}
+/* .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -225,7 +230,7 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
-}
+} */
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -322,18 +327,22 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup, .btn-close {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
   border: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
-/* custom select styles */
+/* custom select styles
 .custom-select {
   position: relative;
   font-family: Arial;
@@ -349,7 +358,7 @@ input[data-error]::after {
 }
 
 /* Style the arrow inside the select element: */
-.select-selected:after {
+/* .select-selected:after {
   position: absolute;
   content: "";
   top: 10px;
@@ -361,10 +370,10 @@ input[data-error]::after {
   border-left-color: #f00;
   transform: rotate(-48deg);
   border-radius: 5px 0 5px 0;
-}
+} */
 
 /* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
+/* .select-selected.select-arrow-active:after {
   transform: rotate(135deg);
   top: 13px;
 }
@@ -378,27 +387,27 @@ input[data-error]::after {
   cursor: pointer;
   border-radius: 8px;
   height: 48px;
-}
+} */
 
 /* Style items (options): */
-.select-items {
+/* .select-items {
   position: absolute;
   background-color: #fff;
   top: 89%;
   left: 0;
   right: 0;
   z-index: 99;
-}
+} */
 
 /* Hide the items when the select box is closed: */
-.select-hide {
+/* .select-hide {
   display: none;
-}
+} */
 
-.select-items div:hover,
+/* .select-items div:hover,
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
-}
+} */ 
 /* custom select end */
 .text-label {
   font-weight: normal;
