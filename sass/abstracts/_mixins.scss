@@ -1,0 +1,16 @@
+@use 'variables';
+
+@mixin button{
+    background: #fe142f;
+    display: block;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 82px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+}

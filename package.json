@@ -1,0 +1,40 @@
+{
+  "devDependencies": {
+    "sass": "^1.49.0"
+  },
+  "name": "gameon-website-fr",
+  "description": "1. Forkez ce repo ;\r 2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;\r 3. Il n'y a aucune dépendance ;\r 4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.",
+  "version": "1.0.0",
+  "main": "modal.js",
+  "dependencies": {
+    "anymatch": "^3.1.2",
+    "braces": "^3.0.2",
+    "binary-extensions": "^2.2.0",
+    "chokidar": "^3.5.3",
+    "fill-range": "^7.0.1",
+    "immutable": "^4.0.0",
+    "is-binary-path": "^2.1.0",
+    "is-extglob": "^2.1.1",
+    "glob-parent": "^5.1.2",
+    "is-glob": "^4.0.3",
+    "is-number": "^7.0.0",
+    "normalize-path": "^3.0.0",
+    "picomatch": "^2.3.1",
+    "readdirp": "^3.6.0",
+    "source-map-js": "^1.0.2",
+    "to-regex-range": "^5.0.1"
+  },
+  "scripts": {
+    "sass": "sass sass/main.scss modal.css -w "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almoha73/GameOn-website-FR.git"
+  },
+  "author": "agnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/almoha73/GameOn-website-FR/issues"
+  },
+  "homepage": "https://github.com/almoha73/GameOn-website-FR#readme"
+}

@@ -1,0 +1,82 @@
+@use '../abstracts';
+
+nav.topnav {
+    width: 88%;
+    height: auto;
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    // overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        @media screen and (max-width: 1036px) {
+            width: 94%;
+            display: block;
+        }
+    .navbar-responsive{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    & .header-logo img{
+        width: 100%;
+        @media screen and (max-width: 768px) {
+            width: 100px;
+        }
+    }
+    & ul.main-navbar{
+        display: flex;
+        list-style-type: none;
+            @media screen and (max-width: 1036px) {
+                position: absolute;
+                top: 8%;
+                right: 0;
+                left: -100%;
+                background-color: abstracts.$color-secondary;
+                height: 100vh;
+                width: 100%;
+                display: block;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+        &.appear{
+            left: 0px;
+
+        }
+        & li{
+            @media screen and (max-width: 1036px) {
+                margin: 40px 0;
+            }
+        }
+    }
+
+    & a {
+        padding: 12px;
+        margin: 5px;
+        color: abstracts.$color-black;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: abstracts.$font-roboto;
+        &.active {
+            background-color: abstracts.$color-septenary;
+            text-decoration: underline;
+            text-underline-position: under;
+            color: abstracts.$color-white;
+            border-radius: 15px;
+        }
+        &:hover {
+            background-color: abstracts.$color-septenary;
+            color: abstracts.$color-white;
+            border-radius: 15px;
+          }
+      }
+    & .icon{
+        display: none;
+        color: abstracts.$color-septenary;
+            @media screen and (max-width: 1036px) {
+                display: block;
+                cursor: pointer;
+            }
+    }
+}

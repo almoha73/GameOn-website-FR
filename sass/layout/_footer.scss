@@ -1,0 +1,18 @@
+@use '../abstracts';
+
+footer{
+    width: 100%;
+    margin: 20px;
+    // padding: 10px;
+    // padding-left: 2vw;
+    // padding-right: 2vw;
+    // margin: 0 20px;
+    font-family: abstracts.$font-roboto;
+    .copyrights {
+        color: abstracts.$color-septenary;
+        padding: 0;
+        font-size: 1rem;
+        margin: 60px 0 30px 3.75%;
+        font-weight: bolder;
+      }
+}

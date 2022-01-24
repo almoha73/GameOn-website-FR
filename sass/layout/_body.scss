@@ -1,0 +1,16 @@
+@use '../abstracts';
+
+body {
+    /* margin: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: abstracts.$font-default;
+    font-size: 18px;
+    width: 100%;
+    height: auto;
+    @media screen and (max-width: 1036px) {
+      width: 98%;
+    }
+  }

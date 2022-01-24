@@ -1,0 +1,84 @@
+@use '../abstracts';
+
+main {
+    width: 88%;
+    font-weight: bolder;
+    color: abstracts.$color-black;
+    padding-top: 0.5vw;
+    // padding-left: 2vw;
+    // padding-right: 2vw;
+    // margin: 1px 20px 15px;
+    border-radius: 2rem;
+    text-align: justify;
+    flex: 1;
+    height: auto;
+    z-index: 1;
+}
+.hero-section{
+    height: 80%;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50% 25% 25%;
+    overflow: hidden;
+    box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+        @media screen and (max-width: 768px){ 
+            margin-bottom: 33%; 
+            min-height: auto;
+            display: block;
+            box-shadow: unset;
+        }
+    .hero-content {
+        padding: 51px 0 51px 67px;
+        grid-column: span 4;
+        grid-row: span 3;
+        background: #232323;
+        color: #fff;
+        position: relative;
+        text-align: left;
+        display: grid;
+        grid-template-rows: 50% 25% 25%;
+        // min-width: 424px;
+        & h1.hero-headline{
+            min-width: 90vmin;
+            font-size: 10vmin;
+        }
+        & p{
+            width: 50%;
+            font-weight: normal;
+            margin-top: 57px;
+            padding: 0; 
+            grid-row: 2 / 3
+        }
+        & button.btn-signup{
+            @include abstracts.button;
+            outline: none;
+            text-transform: capitalize;
+            font-size: 1.3rem;
+            padding: 15px 23px;
+            left: 15vh;
+            bottom: 10%;
+        }
+    }
+    .hero-img{
+        grid-column: span 8;
+        grid-row: span 4;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            padding: 0;
+          }
+    }
+    & > .btn-sign-up{
+        display: none;
+        @media screen and (max-width: 768px){ 
+            display: block;
+            /* margin: 32px auto 10px; */
+            padding: 12px 35px;
+            margin-top: 0;    
+        }
+    }
+}
