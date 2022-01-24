@@ -12,28 +12,30 @@
     />
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
-      <div class="header-logo">
-        <img alt="logo" src="./starterOnly/Logo.png" width="auto" height="auto" />
+    <nav class="topnav" id="myTopnav">
+      <div class="navbar-responsive">
+        <div class="header-logo">
+          <img alt="logo" src="./starterOnly/Logo.png"/>
+        </div>
+        <div class="responsive">
+          <a href="#" class="icon">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
       </div>
-      <div class="main-navbar">
-        
-        <a href="#" class="active"><span>Accueil</span></a>
-        <a href="#"><span>Détails de l'évènement</span></a>
-        <a href="#"><span>À propos</span></a>
-        <a href="#"><span>Contact</span></a>
-        <a href="#"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
-    </div>
-    </div>
+      <ul class="main-navbar">
+        <li><a href="#" class="active">Détails de l'évènement</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Évènements passés</a></li>
+      </ul>
+    </nav>
+
       <main>
         <div class="hero-section">
           <div class="hero-content">
             <h1 class="hero-headline">
-              Marathon national<br>
+              Marathon national
               de jeux vidéos
             </h1>
             <p class="hero-text">
@@ -134,11 +136,11 @@
           </div>
         </div>
       </main>
-    <footer>
-      <p class="copyrights">
-        Copyright 2014 - 2020, GameOn Inc.
-      </p>
-    </footer>
+      <footer>
+        <p class="copyrights">
+          Copyright 2014 - 2020, GameOn Inc.
+        </p>
+      </footer>
 
     <script src="modal.js"></script>
   </body>

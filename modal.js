@@ -1,14 +1,20 @@
 'use strict';
 
+const toggleButton = document.querySelector(".icon");
+const mainNavbar = document.querySelector(".main-navbar");
 
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+toggleButton.addEventListener('click', () => {
+  mainNavbar.classList.toggle('appear');
+})
+
+// function editNav() {
+//   var x = document.getElementById("myTopnav");
+//   if (x.className === "topnav") {
+//     x.className += " responsive";
+//   } else {
+//     x.className = "topnav";
+//   }
+// }
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
