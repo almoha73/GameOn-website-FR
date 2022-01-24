@@ -38,6 +38,7 @@ function launchModal() {
   modalbg.style.display = "block";
   prenomHelp.innerHTML = `Veuillez renseigner votre prénom`;
   prenomHelp.style.color = 'white';
+  focusBlur();
   closeForm();
 }  
 
@@ -121,8 +122,8 @@ closeAfterValidation();
     }else if(/^[a-zA-Zéè ]+$/.test(prenom.value) && prenom.value.length >= 2){
       prenomHelp.innerHTML = `Prénom valide`;
       prenomHelp.style.color = 'green';
-      prenom.style.border = '2px solid green';
       nom.focus();
+      prenom.style.border = '2px solid green';
       return true;
     }else{
       prenomHelp.innerHTML = `Le prénom doit contenir 2 lettres minmum`;

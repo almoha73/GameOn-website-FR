@@ -73,6 +73,10 @@ img {
     float: right;
     display: block;
   }
+  .header-logo img{
+    margin-top: 15px;
+    width: 100px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -96,7 +100,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 0px;
+    color: red;
   }
 } 
 
@@ -211,7 +216,8 @@ input {
   height: 48px;
 }
 p.help{
-  font-size: 11px;
+  line-height: 0px;
+  font-size: 10px;
 }
 /* .formData[data-error]::after {
   content: attr(data-error);
@@ -449,6 +455,7 @@ input[data-error]::after {
   font-weight: normal;
   white-space: nowrap;
 }
+
 .hero-text {
   width: 146%;
   font-weight: normal;
