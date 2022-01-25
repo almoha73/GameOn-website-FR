@@ -29,7 +29,7 @@ nav.topnav {
         list-style-type: none;
             @media screen and (max-width: 1036px) {
                 position: absolute;
-                top: 8%;
+                top: 10%;
                 right: 0;
                 left: -100%;
                 background-color: abstracts.$color-secondary;
@@ -39,9 +39,12 @@ nav.topnav {
                 text-align: center;
                 transition: all 0.3s ease;
             }
+            @media screen and (max-width: 768px) {
+                top: 8%;
+            }
         &.appear{
             left: 0px;
-
+            z-index: 2;
         }
         & li{
             @media screen and (max-width: 1036px) {

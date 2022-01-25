@@ -59,7 +59,7 @@ nav.topnav ul.main-navbar {
 @media screen and (max-width: 1036px) {
   nav.topnav ul.main-navbar {
     position: absolute;
-    top: 8%;
+    top: 10%;
     right: 0;
     left: -100%;
     background-color: #3876ac;
@@ -70,8 +70,14 @@ nav.topnav ul.main-navbar {
     transition: all 0.3s ease;
   }
 }
+@media screen and (max-width: 768px) {
+  nav.topnav ul.main-navbar {
+    top: 8%;
+  }
+}
 nav.topnav ul.main-navbar.appear {
   left: 0px;
+  z-index: 2;
 }
 @media screen and (max-width: 1036px) {
   nav.topnav ul.main-navbar li {
