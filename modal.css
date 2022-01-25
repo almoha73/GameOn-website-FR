@@ -244,6 +244,7 @@ main {
 @media screen and (max-width: 768px) {
   .hero-section .hero-img img {
     margin-bottom: 12%;
+    border-radius: 10px;
   }
 }
 .hero-section .btn-signup {
