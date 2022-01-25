@@ -1,7 +1,7 @@
 @use '../abstracts';
 
 .bground {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -29,13 +29,14 @@
         }
       }
 }
-form .formData1, , form .formData{
+form .formData1, form .formData{
     & label {
         font-family: abstracts.$font-default;
-        font-size: 17px;
+        font-size: 13px;
         font-weight: normal;
         display: inline-block;
-        margin-bottom: 11px;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
     & input {
         padding: 8px;
@@ -47,12 +48,13 @@ form .formData1, , form .formData{
             width: 100%;
             border-radius: 8px;
             font-size: 20px;
-            height: 48px;
+            height: 55px;
           }
     }
     & p.help{
-        line-height: 0px;
+        margin-top: 3px;
         font-size: 10px;
+        font-weight: normal;
       }
 }
 
@@ -77,8 +79,7 @@ form .formData{
         top: -1px;
         transition: 0.3s;
     }
-    & .checkbox-label .checkbox-icon::after,
-    .checkbox2-label .checkbox-icon::after {
+    & .checkbox-label .checkbox-icon::after{
         content: "";
         width: 13px;
         height: 13px;
@@ -96,8 +97,12 @@ form .formData{
     & .checkbox-input {
         display: none;
     }
+    & .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+    .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+      opacity: 1;
+    }
     & .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-        background: #279e7a;
+        background: #27927a;
     }
     & .checkbox2-label .checkbox-icon {
         border-radius: 4px;
@@ -105,16 +110,55 @@ form .formData{
         background: #c4c4c4;
     }
     & .checkbox2-label .checkbox-icon::after {
-        width: 7px;
-        height: 4px;
-        border-radius: 2px;
+        content: "";
+        width: 12px;
+        height: 7px;
+        border-radius: 3px;
         background: transparent;
         border: 2px solid transparent;
-        border-bottom-color: #fff;
-        border-left-color: #fff;
-        transform: rotate(-55deg);
-        left: 21%;
-        top: 19%;
-      }
+        border-bottom-color: abstracts.$color-white;
+        border-left-color: abstracts.$color-white;
+        transform: rotate(-45deg);
+        left: 25%;
+        top: 18%;
+        position: absolute;
+        opacity: 0;
+    }
 }
+p.text-label{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.btn-submit, .btn-close{
+    @include abstracts.button;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(0.7);
+        &:before, &:after {
+            position: absolute;
+            left: 15px;
+            content: " ";
+            height: 33px;
+            width: 3px;
+            background-color: #fff;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+          }
+}
+  
+  
 

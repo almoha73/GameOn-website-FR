@@ -84,8 +84,8 @@ nav.topnav a {
   color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 20px;
-  font-family: "Roboto, sans-serif";
+  font-size: 1.3vmax;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
 }
 nav.topnav a.active {
   background-color: #fe142f;
@@ -121,27 +121,22 @@ main {
   height: auto;
   z-index: 1;
 }
-
 .hero-section {
-  height: 80%;
+  height: auto;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 50% 25% 25%;
-  overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
   .hero-section {
-    margin-bottom: 33%;
-    min-height: auto;
-    display: block;
-    box-shadow: unset;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
   }
 }
 .hero-section .hero-content {
-  padding: 51px 0 51px 67px;
   grid-column: span 4;
   grid-row: span 3;
   background: #232323;
@@ -151,16 +146,54 @@ main {
   display: grid;
   grid-template-rows: 50% 25% 25%;
 }
+@media screen and (max-width: 768px) {
+  .hero-section .hero-content {
+    background-color: white;
+    color: #232323;
+    display: block;
+  }
+}
 .hero-section .hero-content h1.hero-headline {
-  min-width: 90vmin;
+  width: 90vmin;
   font-size: 10vmin;
+  margin-left: 6.5%;
+  margin-top: 6.5%;
+}
+@media screen and (max-width: 1036px) {
+  .hero-section .hero-content h1.hero-headline {
+    font-size: 7vmin;
+    width: 60vmin;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section .hero-content h1.hero-headline {
+    font-size: 10.1vmin;
+    width: 100%;
+    margin: 0;
+  }
 }
 .hero-section .hero-content p {
   width: 50%;
   font-weight: normal;
-  margin-top: 57px;
+  margin-top: 6.5%;
   padding: 0;
   grid-row: 2/3;
+  margin-left: 6.5%;
+}
+@media screen and (max-width: 1036px) {
+  .hero-section .hero-content p {
+    font-size: 2vmin;
+    width: 60vmin;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section .hero-content p {
+    margin-top: 10%;
+    margin-left: 0;
+    margin-bottom: 10%;
+    font-size: 3.4vmin;
+    width: 100%;
+  }
 }
 .hero-section .hero-content button.btn-signup {
   background: #fe142f;
@@ -168,7 +201,7 @@ main {
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
-  color: #fff;
+  color: white;
   cursor: pointer;
   border: 0;
   position: absolute;
@@ -177,10 +210,20 @@ main {
   transform: translateX(-50%);
   outline: none;
   text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
-  left: 15vh;
+  font-size: 2vmin;
+  padding: 15px 20px;
+  left: 40%;
   bottom: 10%;
+  width: 15vmax;
+}
+@media screen and (max-width: 768px) {
+  .hero-section .hero-content button.btn-signup {
+    bottom: -40vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6vmax;
+    display: none;
+  }
 }
 .hero-section .hero-img {
   grid-column: span 8;
@@ -192,20 +235,40 @@ main {
   display: block;
   padding: 0;
 }
-.hero-section > .btn-sign-up {
+@media screen and (max-width: 768px) {
+  .hero-section .hero-img img {
+    margin-bottom: 12%;
+  }
+}
+.hero-section .btn-signup {
   display: none;
 }
 @media screen and (max-width: 768px) {
-  .hero-section > .btn-sign-up {
+  .hero-section .btn-signup {
+    display: inline-block;
+    background: #fe142f;
     display: block;
-    /* margin: 32px auto 10px; */
-    padding: 12px 35px;
-    margin-top: 0;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 82px;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: unset;
+    margin: 0 auto;
+    padding: 12px 12px;
+    width: 35vmin;
+    transform: initial;
+    font-size: 1.5vmax;
   }
 }
 
 .bground {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -236,10 +299,11 @@ main {
 
 form .formData1 label, form .formData label {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 form .formData1 input, form .formData input {
   padding: 8px;
@@ -252,11 +316,12 @@ form .formData1 input.text-control, form .formData input.text-control {
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  height: 48px;
+  height: 55px;
 }
 form .formData1 p.help, form .formData p.help {
-  line-height: 0px;
+  margin-top: 3px;
   font-size: 10px;
+  font-weight: normal;
 }
 
 form .formData .checkbox-label,
@@ -279,8 +344,7 @@ form .formData .checkbox-label .checkbox-icon, form .formData .checkbox2-label .
   top: -1px;
   transition: 0.3s;
 }
-form .formData .checkbox-label .checkbox-icon::after,
-form .formData .checkbox2-label .checkbox-icon::after {
+form .formData .checkbox-label .checkbox-icon::after {
   content: "";
   width: 13px;
   height: 13px;
@@ -298,8 +362,12 @@ form .formData .checkbox2-label .checkbox-icon::after {
 form .formData .checkbox-input {
   display: none;
 }
+form .formData .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+form .formData .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
 form .formData .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-  background: #279e7a;
+  background: #27927a;
 }
 form .formData .checkbox2-label .checkbox-icon {
   border-radius: 4px;
@@ -307,22 +375,78 @@ form .formData .checkbox2-label .checkbox-icon {
   background: #c4c4c4;
 }
 form .formData .checkbox2-label .checkbox-icon::after {
-  width: 7px;
-  height: 4px;
-  border-radius: 2px;
+  content: "";
+  width: 12px;
+  height: 7px;
+  border-radius: 3px;
   background: transparent;
   border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
-  transform: rotate(-55deg);
-  left: 21%;
-  top: 19%;
+  border-bottom-color: white;
+  border-left-color: white;
+  transform: rotate(-45deg);
+  left: 25%;
+  top: 18%;
+  position: absolute;
+  opacity: 0;
+}
+
+p.text-label {
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.btn-submit, .btn-close {
+  background: #fe142f;
+  display: block;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: white;
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
 
 footer {
   width: 100%;
   margin: 20px;
-  font-family: "Roboto, sans-serif";
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    padding-bottom: 8%;
+    margin: 0;
+  }
 }
 footer .copyrights {
   color: #fe142f;
@@ -330,6 +454,11 @@ footer .copyrights {
   font-size: 1rem;
   margin: 60px 0 30px 3.75%;
   font-weight: bolder;
+}
+@media screen and (max-width: 768px) {
+  footer .copyrights {
+    text-align: center;
+  }
 }
 
 *, ::before, ::after {
