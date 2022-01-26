@@ -1,7 +1,7 @@
 @use '../abstracts';
 
 nav.topnav {
-    width: 88%;
+    width: 96%;
     height: auto;
     margin-top: 3.5%;
     margin-bottom: 3.5%;
@@ -10,7 +10,7 @@ nav.topnav {
     align-items: center;
     justify-content: space-between;
         @media screen and (max-width: 1036px) {
-            width: 94%;
+            width: 88%;
             display: block;
         }
     .navbar-responsive{
@@ -20,6 +20,10 @@ nav.topnav {
     }
     & .header-logo img{
         width: 100%;
+        margin-left: 20%;
+        @media screen and (max-width: 1036px) {
+            margin-left: 0;
+        }
         @media screen and (max-width: 768px) {
             width: 100px;
         }
@@ -37,10 +41,16 @@ nav.topnav {
                 width: 100%;
                 display: block;
                 text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 transition: all 0.3s ease;
             }
             @media screen and (max-width: 768px) {
                 top: 8%;
+
+                
             }
         &.appear{
             left: 0px;
@@ -54,13 +64,14 @@ nav.topnav {
     }
 
     & a {
-        padding: 12px;
-        margin: 5px;
         color: abstracts.$color-black;
-        text-align: center;
         text-decoration: none;
         font-size: 1.3vmax;
         font-family: abstracts.$font-default;
+        padding: 12px;
+        @media screen and (max-width: 1036px) {
+            font-size: 2vmax;
+        }
         &.active {
             background-color: abstracts.$color-septenary;
             text-decoration: underline;
@@ -71,7 +82,9 @@ nav.topnav {
         &:hover {
             background-color: abstracts.$color-septenary;
             color: abstracts.$color-white;
-            border-radius: 15px;
+            border-radius: 15px; 
+            text-decoration: underline;
+            text-underline-position: under;
           }
       }
     & .icon{
@@ -80,6 +93,10 @@ nav.topnav {
             @media screen and (max-width: 1036px) {
                 display: block;
                 cursor: pointer;
+                font-size: 32px;
+            }
+            @media screen and (max-width: 1036px) {
+                font-size: 20px;
             }
     }
 }
