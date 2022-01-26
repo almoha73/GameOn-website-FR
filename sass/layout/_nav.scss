@@ -12,6 +12,7 @@ nav.topnav {
         @media screen and (max-width: 1036px) {
             width: 88%;
             display: block;
+            z-index: 3;
         }
     .navbar-responsive{
         display: flex;
@@ -32,10 +33,9 @@ nav.topnav {
         display: flex;
         list-style-type: none;
             @media screen and (max-width: 1036px) {
-                position: absolute;
-                top: 9%;
-                right: 0;
-                left: -100%;
+                position: fixed;
+                top: 0;
+                left: 0;
                 background: #5C1748;
                 background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
                 background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
@@ -46,14 +46,17 @@ nav.topnav {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                transition: all 0.3s ease;
+                transition: all 1s ease-out;
+                clip-path: circle(100px at 88% -11%);
+                -webkit-clip-path : circle(100px at 100% -11%);
             }
-            @media screen and (max-width: 768px) {
-                top: 11%;    
-            }
+            // @media screen and (max-width: 768px) {
+            //     top: 11%;    
+            // }
+       
         &.appear{
-            left: 0px;
-            z-index: 2;
+            clip-path: circle(1450px at 88% -11%);
+            -webkit-clip-path : circle(1450px at 88% -11%)
         }
         & li{
             @media screen and (max-width: 1036px) {
@@ -69,7 +72,9 @@ nav.topnav {
         font-family: abstracts.$font-default;
         padding: 12px;
         @media screen and (max-width: 1036px) {
-            font-size: 2vmax;
+            font-size: 2.3vmax;
+            color: white;
+            font-weight: 500;
         }
         &.active {
             background-color: abstracts.$color-septenary;
@@ -89,13 +94,16 @@ nav.topnav {
     & .icon{
         display: none;
         color: abstracts.$color-septenary;
-            @media screen and (max-width: 1036px) {
-                display: block;
-                cursor: pointer;
-                font-size: 32px;
-            }
-            @media screen and (max-width: 1036px) {
-                font-size: 20px;
-            }
+        @media screen and (max-width: 1036px) {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            z-index: 10;
+            
+        }
     }
 }
+    
+               
+            
+    

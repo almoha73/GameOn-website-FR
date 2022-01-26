@@ -37,6 +37,7 @@ nav.topnav {
   nav.topnav {
     width: 88%;
     display: block;
+    z-index: 3;
   }
 }
 nav.topnav .navbar-responsive {
@@ -64,10 +65,9 @@ nav.topnav ul.main-navbar {
 }
 @media screen and (max-width: 1036px) {
   nav.topnav ul.main-navbar {
-    position: absolute;
-    top: 9%;
-    right: 0;
-    left: -100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     background: #5C1748;
     background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
     background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
@@ -78,17 +78,14 @@ nav.topnav ul.main-navbar {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-  }
-}
-@media screen and (max-width: 768px) {
-  nav.topnav ul.main-navbar {
-    top: 11%;
+    transition: all 1s ease-out;
+    clip-path: circle(100px at 88% -11%);
+    -webkit-clip-path: circle(100px at 100% -11%);
   }
 }
 nav.topnav ul.main-navbar.appear {
-  left: 0px;
-  z-index: 2;
+  clip-path: circle(1450px at 88% -11%);
+  -webkit-clip-path: circle(1450px at 88% -11%);
 }
 @media screen and (max-width: 1036px) {
   nav.topnav ul.main-navbar li {
@@ -104,7 +101,9 @@ nav.topnav a {
 }
 @media screen and (max-width: 1036px) {
   nav.topnav a {
-    font-size: 2vmax;
+    font-size: 2.3vmax;
+    color: white;
+    font-weight: 500;
   }
 }
 nav.topnav a.active {
@@ -128,13 +127,9 @@ nav.topnav .icon {
 @media screen and (max-width: 1036px) {
   nav.topnav .icon {
     display: block;
+    position: relative;
     cursor: pointer;
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 1036px) {
-  nav.topnav .icon {
-    font-size: 20px;
+    z-index: 10;
   }
 }
 
@@ -300,7 +295,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 0;
   height: 100%;
