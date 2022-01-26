@@ -37,8 +37,8 @@ nav.topnav {
                 top: 0;
                 left: 0;
                 background: #5C1748;
-                background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
-                background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
+                // background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
+                // background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
                 background: linear-gradient(to top right, #5C1748, #0F7AC7);
                 height: 100vh;
                 width: 100%;  
@@ -48,7 +48,7 @@ nav.topnav {
                 justify-content: center;
                 transition: all 1s ease-out;
                 clip-path: circle(100px at 88% -11%);
-                -webkit-clip-path : circle(100px at 100% -11%);
+                // -webkit-clip-path : circle(100px at 100% -11%);
             }
             // @media screen and (max-width: 768px) {
             //     top: 11%;    
@@ -56,7 +56,7 @@ nav.topnav {
        
         &.appear{
             clip-path: circle(1450px at 88% -11%);
-            -webkit-clip-path : circle(1450px at 88% -11%)
+            // -webkit-clip-path : circle(1450px at 88% -11%)
         }
         & li{
             @media screen and (max-width: 1036px) {

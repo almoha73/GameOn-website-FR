@@ -25,7 +25,8 @@
     "to-regex-range": "^5.0.1"
   },
   "scripts": {
-    "sass": "sass sass/main.scss modal.css -w "
+    "sass": "sass sass/main.scss modal.css -w ",
+    "prefix": "postcss modal.css --use autoprefixer -d ./css/"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   },
   "author": "agnes",
   "license": "ISC",
+  "browserslist": "last 4 versions",
   "bugs": {
     "url": "https://github.com/almoha73/GameOn-website-FR/issues"
   },
