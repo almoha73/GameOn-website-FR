@@ -38,9 +38,7 @@ nav.topnav {
                 left: -100%;
                 background-color: abstracts.$color-secondary;
                 height: 100vh;
-                width: 100%;
-                display: block;
-                text-align: center;
+                width: 100%;  
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -48,9 +46,7 @@ nav.topnav {
                 transition: all 0.3s ease;
             }
             @media screen and (max-width: 768px) {
-                top: 8%;
-
-                
+                top: 8%;    
             }
         &.appear{
             left: 0px;

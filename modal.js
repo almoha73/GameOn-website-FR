@@ -1,5 +1,7 @@
 'use strict';
 
+//Apparition de la navbar type rideau
+
 const toggleButton = document.querySelector(".icon");
 const mainNavbar = document.querySelector(".main-navbar");
 
