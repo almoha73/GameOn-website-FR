@@ -47,7 +47,7 @@ nav.topnav {
                 align-items: center;
                 justify-content: center;
                 transition: all 1s ease-out;
-                clip-path: circle(100px at 88% -11%);
+                clip-path: circle(100px at 88% -15%);
                 // -webkit-clip-path : circle(100px at 100% -11%);
             }
             // @media screen and (max-width: 768px) {
@@ -55,7 +55,7 @@ nav.topnav {
             // }
        
         &.appear{
-            clip-path: circle(1450px at 88% -11%);
+            clip-path: circle(1450px at 88% -15%);
             // -webkit-clip-path : circle(1450px at 88% -11%)
         }
         & li{
