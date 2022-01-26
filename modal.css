@@ -65,10 +65,13 @@ nav.topnav ul.main-navbar {
 @media screen and (max-width: 1036px) {
   nav.topnav ul.main-navbar {
     position: absolute;
-    top: 10%;
+    top: 9%;
     right: 0;
     left: -100%;
-    background-color: #3876ac;
+    background: #5C1748;
+    background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
+    background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
+    background: linear-gradient(to top right, #5C1748, #0F7AC7);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -80,7 +83,7 @@ nav.topnav ul.main-navbar {
 }
 @media screen and (max-width: 768px) {
   nav.topnav ul.main-navbar {
-    top: 8%;
+    top: 11%;
   }
 }
 nav.topnav ul.main-navbar.appear {
@@ -146,6 +149,7 @@ main {
   height: auto;
   z-index: 1;
 }
+
 .hero-section {
   height: auto;
   border-radius: 10px;
@@ -154,7 +158,7 @@ main {
   grid-template-rows: 50% 25% 25%;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1036px) {
   .hero-section {
     display: flex;
     flex-direction: column;
@@ -208,7 +212,11 @@ main {
 @media screen and (max-width: 1036px) {
   .hero-section .hero-content p {
     font-size: 2vmin;
-    width: 60vmin;
+    width: 80vmin;
+    margin-top: 10%;
+    margin-left: 6%;
+    margin-bottom: 10%;
+    font-size: 3.4vmin;
   }
 }
 @media screen and (max-width: 768px) {
@@ -241,12 +249,8 @@ main {
   bottom: 10%;
   width: 15vmax;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1036px) {
   .hero-section .hero-content button.btn-signup {
-    bottom: -40vh;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.6vmax;
     display: none;
   }
 }
@@ -269,7 +273,7 @@ main {
 .hero-section .btn-signup {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1036px) {
   .hero-section .btn-signup {
     display: inline-block;
     background: #fe142f;
@@ -285,7 +289,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
     position: unset;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 12px 12px;
     width: 35vmin;
     transform: initial;

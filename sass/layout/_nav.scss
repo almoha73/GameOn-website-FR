@@ -33,10 +33,13 @@ nav.topnav {
         list-style-type: none;
             @media screen and (max-width: 1036px) {
                 position: absolute;
-                top: 10%;
+                top: 9%;
                 right: 0;
                 left: -100%;
-                background-color: abstracts.$color-secondary;
+                background: #5C1748;
+                background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
+                background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
+                background: linear-gradient(to top right, #5C1748, #0F7AC7);
                 height: 100vh;
                 width: 100%;  
                 display: flex;
@@ -46,7 +49,7 @@ nav.topnav {
                 transition: all 0.3s ease;
             }
             @media screen and (max-width: 768px) {
-                top: 8%;    
+                top: 11%;    
             }
         &.appear{
             left: 0px;

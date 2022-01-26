@@ -13,9 +13,6 @@ main {
     flex: 1;
     height: auto;
     z-index: 1;
-    @media screen and (max-width: 768px){ 
-        
-    }
 }
 .hero-section{
     height: auto;
@@ -26,7 +23,7 @@ main {
     // overflow: hidden;
     box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
     // margin-bottom: 10px;
-    @media screen and (max-width: 768px){ 
+    @media screen and (max-width: 1036px){ 
         display: flex;
         flex-direction: column;
         box-shadow: none;
@@ -72,7 +69,11 @@ main {
             margin-left: 6.5%;
             @media screen and (max-width: 1036px){ 
                 font-size: 2vmin;
-                width: 60vmin;
+                width: 80vmin;
+                margin-top: 10%;
+                margin-left: 6%;
+                margin-bottom: 10%;
+                font-size: 3.4vmin;
             }
             @media screen and (max-width: 768px){
                 margin-top: 10%;
@@ -91,11 +92,11 @@ main {
             left: 40%;
             bottom: 10%;
             width: 15vmax;
-            @media screen and (max-width: 768px){ 
-                bottom: -40vh;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 1.6vmax;
+            @media screen and (max-width: 1036px){ 
+                // bottom: -40vh;
+                // left: 50%;
+                // transform: translateX(-50%);
+                // font-size: 1.6vmax;
                 display: none;
             }
         }
@@ -117,11 +118,11 @@ main {
     }
     & .btn-signup{
         display: none;
-        @media screen and (max-width: 768px){ 
+        @media screen and (max-width: 1036px){ 
             display: inline-block;
             @include abstracts.button;
             position: unset;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 12px 12px;
             width: 35vmin;
             transform: initial;
