@@ -35,6 +35,8 @@ const mail = document.querySelector('#email');
 const mailHelp = document.querySelector('.mailHelp');
 const birth = document.querySelector('#birthdate');
 const birthHelp = document.querySelector('.birthHelp');
+const radio = document.querySelectorAll(".checkbox-input");
+const radioHelp = document.querySelector('.radioHelp');
 const quantity = document.querySelector('#quantity');
 const quantityHelp = document.querySelector('.quantityHelp');
 const allInput = document.querySelectorAll('input.text-control');
@@ -61,8 +63,8 @@ form.addEventListener('submit', (e) => {
     valideMail() &&
     valideBirth() &&
     valideQuantity() &&
-    valideRadio() 
-    //valideConditions()
+    valideRadio() &&
+    valideConditions()
   ){
     
     setTimeout(() => {
@@ -131,9 +133,9 @@ closeAfterValidation();
       return false;
     }else if(/^[a-zA-Zéè ]+$/.test(prenom.value) && prenom.value.length >= 2){
       prenomHelp.innerHTML = `Prénom valide`;
-      prenomHelp.style.color = 'green';
+      prenomHelp.style.color = '#16d12f';
       nom.focus();
-      prenom.style.border = '2px solid green';
+      prenom.style.border = '2px solid #16d12f';
       return true;
     }else{
       prenomHelp.innerHTML = `Le prénom doit contenir 2 lettres minmum`;
@@ -151,11 +153,11 @@ closeAfterValidation();
       nomHelp.style.color = 'white';
       nom.style.border = '2px solid blue';
       return false
-    }else if(/^[a-zA-Z ]+$/.test(nom.value) && nom.value.length >= 2){
+    }else if(/^[a-zA-Zéè ]+$/.test(nom.value) && nom.value.length >= 2){
           nomHelp.innerHTML = `Nom valide`;
-          nomHelp.style.color = 'green';
+          nomHelp.style.color = '#16d12f';
           mail.focus();
-          nom.style.border = '2px solid green';
+          nom.style.border = '2px solid #16d12f';
           return true;
           
     }else{
@@ -175,9 +177,9 @@ closeAfterValidation();
       return false
   }else if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value))){
       mailHelp.innerHTML = 'Mail valide';
-      mailHelp.style.color = 'green';
+      mailHelp.style.color = '#16d12f';
       birth.focus();
-      mail.style.border = '2px solid green';
+      mail.style.border = '2px solid #16d12f';
       return true;
       
   }else{
@@ -205,9 +207,9 @@ function valideBirth(){
     }else if(birthday < todayTime && birthday <= ageMax && birthday >= dateMin){
       
       birthHelp.innerHTML = 'Date de naissance valide';
-      birthHelp.style.color = 'green';
+      birthHelp.style.color = '#16d12f';
       quantity.focus();
-      birth.style.border = '2px solid green';
+      birth.style.border = '2px solid #16d12f';
       return true;
     }
   }
@@ -220,46 +222,53 @@ function valideQuantity(){
     return false;
   }else{
     quantityHelp.innerHTML = 'champ valide';
-    quantityHelp.style.color = 'green';
-    quantity.style.border = '2px solid green';
+    quantityHelp.style.color = '#16d12f';
+    quantity.style.border = '2px solid #16d12f';
     return true;
   }
 }
 
 function valideRadio() {
-  const radio = document.querySelectorAll(".checkbox-input[type='radio']");
-  console.log(radio);
-  let radioChecked = false;
+  let radioChecked = 0;
 
   for(let i = 0; i < radio.length; i++){
     if(radio[i].checked){
-      radioChecked = true;
-      console.log(radio[i]);
-      return true;
+      radioChecked++;
+      break;
     }
   }
-       
+
+  if(radioChecked){
+    radioHelp.innerHTML = 'Vous avez choisi';
+    radioHelp.style.color = '#16d12f';
+    return true;
+  }else{
+    radioHelp.innerHTML = 'Vous devez cocher un choix';
+    radioHelp.style.color = 'red';
+    return false;
+  }
+    
 } 
 
-// function valideConditions (){
-//   const checkbox1 = document.querySelector('#checkbox1').checked;
-//   const obligatoire = document.querySelector('.obligatoire');
+function valideConditions (){
+  const checkbox1 = document.querySelector('#checkbox1');
+  const obligatoire = document.querySelector('.obligatoire');
 
-//   if(checkbox1 === true){
-//     obligatoire.innerHTML = `obligatoire`;
-//     obligatoire.style.color = 'green';
-//     obligatoire.style.fontSize = '13px';
-//     obligatoire.style.marginLeft = '50px';
-    
-//   }else if(checkbox1 === false){
-//     obligatoire.innerHTML = `obligatoire`;
-//     obligatoire.style.color = 'red';
-//     obligatoire.style.fontSize = '13px';
-//     obligatoire.style.marginLeft = '50px';
-    
-//   }
+  if(checkbox1.checked === true){
+    obligatoire.innerHTML = `Merci !`;
+    obligatoire.style.color = '#16d12f';
+    obligatoire.style.fontSize = '13px';
+    obligatoire.style.marginLeft = '50px';
+    return true;
+  }else if(checkbox1 === false){
+    obligatoire.innerHTML = `obligatoire`;
+    obligatoire.style.color = 'red';
+    obligatoire.style.fontSize = '13px';
+    obligatoire.style.marginLeft = '50px';
+    return false;
+  }
 
-// }
+}
 
 
 
