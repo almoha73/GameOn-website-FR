@@ -168,7 +168,7 @@ main {
   }
 }
 .hero-section .hero-content h1.hero-headline {
-  width: 90vmin;
+  width: 84vmin;
   font-size: 10vmin;
   margin-left: 10%;
   margin-top: 6.5%;
@@ -343,7 +343,7 @@ form .formData1 input.text-control, form .formData input.text-control {
 }
 form .formData1 p.help, form .formData p.help {
   margin-top: 3px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: normal;
 }
 
@@ -382,7 +382,7 @@ form .formData .checkbox-label .checkbox-icon::after {
   transition: 0.3s;
   opacity: 0;
 }
-form .formData .checkbox-input {
+form .formData .checkbox-input, form .formData .checkbox-input-1 {
   display: none;
 }
 form .formData .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
