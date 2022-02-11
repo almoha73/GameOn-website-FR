@@ -3,12 +3,11 @@
 .bground {
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: 2;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
+    @include abstracts.widthHeight(100%, 100%);
+    overflow: hidden;
     background-color: abstracts.$color-tertiary;
     .content {
         margin: 5% auto;
@@ -23,6 +22,14 @@
         position: relative;
         color: abstracts.$color-white;
         padding-top: 10px;
+        @media screen and (max-width: 768px){
+                margin: 9vh auto 0;
+                width: 95%;
+                min-height: 780px;
+        }
+        @media screen and (max-width: 1036px) {
+            z-index: 4;
+        }
         .modal-body {
             padding: 15px 8%;
             margin: 15px auto;
@@ -45,10 +52,12 @@ form .formData1, form .formData{
         &.text-control {
             margin: 0;
             padding: 8px;
-            width: 100%;
+            @include abstracts.widthHeight(100%, 55px);
             border-radius: 8px;
             font-size: 20px;
-            height: 55px;
+            @media screen and (max-width: 768px){
+                height: 45px;
+            }
           }
     }
     & p.help{
@@ -68,30 +77,21 @@ form .formData{
     }
     & .checkbox-label .checkbox-icon,.checkbox2-label .checkbox-icon {
         display: block;
-        width: 20px;
-        height: 20px;
+        @include abstracts.widthHeight(20px, 20px);
         border: 2px solid abstracts.$color-quinary;
-        border-radius: 50%;
-        text-indent: 29px;
-        white-space: nowrap;
-        position: absolute;
+        @include abstracts.modalCheckBox;
         left: -30px;
         top: -1px;
-        transition: 0.3s;
+        
     }
     & .checkbox-label .checkbox-icon::after{
         content: "";
-        width: 13px;
-        height: 13px;
+        @include abstracts.widthHeight(13px, 13px);
         background-color: abstracts.$color-quinary;
-        border-radius: 50%;
-        text-indent: 29px;
-        white-space: nowrap;
-        position: absolute;
+        @include abstracts.modalCheckBox;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        transition: 0.3s;
         opacity: 0;
     }
     & .checkbox-input, .checkbox-input-1 {
@@ -111,8 +111,7 @@ form .formData{
     }
     & .checkbox2-label .checkbox-icon::after {
         content: "";
-        width: 12px;
-        height: 7px;
+        @include abstracts.widthHeight(12px, 7px);
         border-radius: 3px;
         background: transparent;
         border: 2px solid transparent;
@@ -139,8 +138,7 @@ p.text-label{
     position: absolute;
     right: 15px;
     top: 15px;
-    width: 32px;
-    height: 32px;
+    @include abstracts.widthHeight(32px, 32px);
     opacity: 1;
     cursor: pointer;
     transform: scale(0.7);
@@ -148,8 +146,7 @@ p.text-label{
             position: absolute;
             left: 15px;
             content: " ";
-            height: 33px;
-            width: 3px;
+            @include abstracts.widthHeight(3px, 33px);
             background-color: #fff;
         }
         &:before {

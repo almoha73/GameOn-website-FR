@@ -1,5 +1,10 @@
 @use 'variables';
 
+@mixin widthHeight($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 @mixin button{
     background: variables.$color-septenary;
     display: block;
@@ -13,4 +18,20 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%); 
+}
+
+@mixin navbar{ //partiel navbar
+    background-color: variables.$color-septenary;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: variables.$color-white;
+    border-radius: 15px;
+}
+
+@mixin modalCheckBox{ //partiel modal.scss
+    border-radius: 50%;
+    text-indent: 29px;
+    white-space: nowrap;
+    position: absolute;
+    transition: 0.3s;
 }

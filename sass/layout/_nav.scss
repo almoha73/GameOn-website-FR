@@ -12,12 +12,14 @@ nav.topnav {
         @media screen and (max-width: 1036px) {
             width: 88%;
             display: block;
-            z-index: 3;
         }
     .navbar-responsive{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: 1036px) {
+            z-index: 4;
+        }
     }
     & .header-logo img{
         width: 100%;
@@ -30,16 +32,19 @@ nav.topnav {
         }
     }
     & ul.main-navbar{
+        width: 50%;
         display: flex;
+        justify-content: space-between;
         list-style-type: none;
             @media screen and (max-width: 1036px) {
                 position: fixed;
                 top: 0;
                 left: 0;
-                background: #5C1748;
-                // background: -webkit-linear-gradient(bottom left, #5C1748, #0F7AC7);
-                // background: -moz-linear-gradient(bottom left, #5C1748, #0F7AC7);
-                background: linear-gradient(to top right, #5C1748, #0F7AC7);
+                background: abstracts.$color-octonary;
+                @media screen and (max-width: 1036px) {
+                    z-index: 4;
+                }
+                background: linear-gradient(to top right, abstracts.$color-octonary, abstracts.$color-secondary);
                 height: 100vh;
                 width: 100%;  
                 display: flex;
@@ -73,18 +78,11 @@ nav.topnav {
             font-weight: 500;
         }
         &.active {
-            background-color: abstracts.$color-septenary;
-            text-decoration: underline;
-            text-underline-position: under;
-            color: abstracts.$color-white;
-            border-radius: 15px;
+            @include abstracts.navbar;
         }
         &:hover {
-            background-color: abstracts.$color-septenary;
-            color: abstracts.$color-white;
-            border-radius: 15px; 
-            text-decoration: underline;
-            text-underline-position: under;
+            @include abstracts.navbar;
+            
           }
       }
     & .icon{
