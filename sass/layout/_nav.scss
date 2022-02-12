@@ -13,15 +13,15 @@ nav.topnav {
             width: 88%;
             display: block;
         }
-    .navbar-responsive{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @media screen and (max-width: 1036px) {
-            z-index: 4;
-        }
+}
+.navbar-responsive{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: 1036px) {
+        z-index: 4;
     }
-    & .header-logo img{
+    .header-logo img{
         width: 100%;
         margin-left: 20%;
         @media screen and (max-width: 1036px) {
@@ -31,72 +31,158 @@ nav.topnav {
             width: 100px;
         }
     }
-    & ul.main-navbar{
-        width: 50%;
+    
+}
+.icon{
+    width: 45px;
+    height: 51px;
+    display: none;
+    color: abstracts.$color-septenary;
+    &:hover #nav-icon span{
+        background-color: abstracts.$color-white;
+    }
+    &:hover{
+        background-color: abstracts.$color-septenary;;
+    }
+    @media screen and (max-width: 1036px) {
+        display: block;
         display: flex;
-        justify-content: space-between;
-        list-style-type: none;
-            @media screen and (max-width: 1036px) {
-                position: fixed;
-                top: 0;
-                left: 0;
-                background: abstracts.$color-octonary;
-                @media screen and (max-width: 1036px) {
-                    z-index: 4;
-                }
-                background: linear-gradient(to top right, abstracts.$color-octonary, abstracts.$color-secondary);
-                height: 100vh;
-                width: 100%;  
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: all 1s ease-out;
-                clip-path: circle(100px at 88% -15%);
-            }
-
-       
-        &.appear{
-            clip-path: circle(1450px at 88% -15%);
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        z-index: 10;
+        
+    }
+}
+#nav-icon{
+    width: 30px;
+    height: 51px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 10;
+    & span{
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 50%;
+        background: abstracts.$color-septenary;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+        &:nth-child(even){
+            left: 50%;
+            border-radius: 0 9px 9px 0;
         }
-        & li{
-            @media screen and (max-width: 1036px) {
-                margin: 40px 0;
-            }
+        &:nth-child(odd){
+            //left:0px;
+            border-radius: 9px 0 0 9px;
+        }
+        &:nth-child(1), &:nth-child(2) {
+            top: 14px;
+        }
+        &:nth-child(3), &:nth-child(4) {
+            top: 24px;
+        }
+        &:nth-child(5), &:nth-child(6) {
+            top: 34px;
         }
     }
+    &.open span:nth-child(1), &.open span:nth-child(6) {
+        transform: rotate(35deg);
+    }
+    &.open span:nth-child(2) ,&.open span:nth-child(5) {
+        transform: rotate(-35deg);
+    }
+    &.open span:nth-child(1) {
+        left: 5px;
+        top: 18px;
+    }
+    &.open span:nth-child(2) {
+        left: calc(50%);
+        top: 18px;
+    }
+    &.open span:nth-child(3) {
+        left: -50%;
+        opacity: 0;
+    }
+    &.open span:nth-child(4) {
+        left: 100%;
+        opacity: 0;
+    }
+    &.open span:nth-child(5) {
+        left: 5px;
+        top: 26px;
+    }
+    &.open span:nth-child(6) {
+        left: calc(50%);
+        top: 26px;
+    }
+    
+}
 
-    & a {
+        
+.main-navbar{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+        @media screen and (max-width: 1036px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: abstracts.$color-octonary;
+            @media screen and (max-width: 1036px) {
+                z-index: 4;
+            }
+            background: linear-gradient(to top right, abstracts.$color-octonary, abstracts.$color-secondary);
+            height: 100vh;
+            width: 100%;  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 1s ease-out;
+            clip-path: circle(100px at 88% -15%);
+        }
+
+    
+    &.appear{
+        clip-path: circle(1450px at 88% -15%);
+    }
+    & li{
+        @media screen and (max-width: 1036px) {
+            margin: 40px 0;
+        }
+    }
+    a {
         color: abstracts.$color-black;
         text-decoration: none;
         font-size: 1.3vmax;
         font-family: abstracts.$font-default;
         padding: 12px;
         @media screen and (max-width: 1036px) {
-            font-size: 2.3vmax;
-            color: white;
+            font-size: 2.3vmin;
             font-weight: 500;
         }
         &.active {
             @include abstracts.navbar;
         }
         &:hover {
-            @include abstracts.navbar;
-            
-          }
-      }
-    & .icon{
-        display: none;
-        color: abstracts.$color-septenary;
-        @media screen and (max-width: 1036px) {
-            display: block;
-            position: relative;
-            cursor: pointer;
-            z-index: 10;
-            
+            @include abstracts.navbar;   
         }
     }
+
 }
+
+
+
+
+
     
                
             

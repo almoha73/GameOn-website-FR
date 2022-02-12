@@ -18,11 +18,6 @@ body {
   width: 100%;
   height: auto;
 }
-@media screen and (max-width: 1036px) {
-  body {
-    width: 98%;
-  }
-}
 
 nav.topnav {
   width: 96%;
@@ -39,38 +34,132 @@ nav.topnav {
     display: block;
   }
 }
-nav.topnav .navbar-responsive {
+
+.navbar-responsive {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media screen and (max-width: 1036px) {
-  nav.topnav .navbar-responsive {
+  .navbar-responsive {
     z-index: 4;
   }
 }
-nav.topnav .header-logo img {
+.navbar-responsive .header-logo img {
   width: 100%;
   margin-left: 20%;
 }
 @media screen and (max-width: 1036px) {
-  nav.topnav .header-logo img {
+  .navbar-responsive .header-logo img {
     margin-left: 0;
   }
 }
 @media screen and (max-width: 768px) {
-  nav.topnav .header-logo img {
+  .navbar-responsive .header-logo img {
     width: 100px;
   }
 }
-nav.topnav ul.main-navbar {
+
+.icon {
+  width: 45px;
+  height: 51px;
+  display: none;
+  color: #fe142f;
+}
+.icon:hover #nav-icon span {
+  background-color: white;
+}
+.icon:hover {
+  background-color: #fe142f;
+}
+@media screen and (max-width: 1036px) {
+  .icon {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+
+#nav-icon {
+  width: 30px;
+  height: 51px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 10;
+}
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  background: #fe142f;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+#nav-icon span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+}
+#nav-icon span:nth-child(odd) {
+  border-radius: 9px 0 0 9px;
+}
+#nav-icon span:nth-child(1), #nav-icon span:nth-child(2) {
+  top: 14px;
+}
+#nav-icon span:nth-child(3), #nav-icon span:nth-child(4) {
+  top: 24px;
+}
+#nav-icon span:nth-child(5), #nav-icon span:nth-child(6) {
+  top: 34px;
+}
+#nav-icon.open span:nth-child(1), #nav-icon.open span:nth-child(6) {
+  transform: rotate(35deg);
+}
+#nav-icon.open span:nth-child(2), #nav-icon.open span:nth-child(5) {
+  transform: rotate(-35deg);
+}
+#nav-icon.open span:nth-child(1) {
+  left: 5px;
+  top: 18px;
+}
+#nav-icon.open span:nth-child(2) {
+  left: 50%;
+  top: 18px;
+}
+#nav-icon.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+#nav-icon.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+#nav-icon.open span:nth-child(5) {
+  left: 5px;
+  top: 26px;
+}
+#nav-icon.open span:nth-child(6) {
+  left: 50%;
+  top: 26px;
+}
+
+.main-navbar {
   width: 50%;
   display: flex;
   justify-content: space-between;
   list-style-type: none;
 }
 @media screen and (max-width: 1036px) {
-  nav.topnav ul.main-navbar {
+  .main-navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -87,19 +176,19 @@ nav.topnav ul.main-navbar {
   }
 }
 @media screen and (max-width: 1036px) and (max-width: 1036px) {
-  nav.topnav ul.main-navbar {
+  .main-navbar {
     z-index: 4;
   }
 }
-nav.topnav ul.main-navbar.appear {
+.main-navbar.appear {
   clip-path: circle(1450px at 88% -15%);
 }
 @media screen and (max-width: 1036px) {
-  nav.topnav ul.main-navbar li {
+  .main-navbar li {
     margin: 40px 0;
   }
 }
-nav.topnav a {
+.main-navbar a {
   color: black;
   text-decoration: none;
   font-size: 1.3vmax;
@@ -107,37 +196,24 @@ nav.topnav a {
   padding: 12px;
 }
 @media screen and (max-width: 1036px) {
-  nav.topnav a {
-    font-size: 2.3vmax;
-    color: white;
+  .main-navbar a {
+    font-size: 2.3vmin;
     font-weight: 500;
   }
 }
-nav.topnav a.active {
+.main-navbar a.active {
   background-color: #fe142f;
   text-decoration: underline;
   text-underline-position: under;
   color: white;
   border-radius: 15px;
 }
-nav.topnav a:hover {
+.main-navbar a:hover {
   background-color: #fe142f;
   text-decoration: underline;
   text-underline-position: under;
   color: white;
   border-radius: 15px;
-}
-nav.topnav .icon {
-  display: none;
-  color: #fe142f;
-}
-@media screen and (max-width: 1036px) {
-  nav.topnav .icon {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    z-index: 10;
-  }
 }
 
 main {

@@ -2,12 +2,13 @@
 
 //Apparition de la navbar type rideau
 
-const toggleButton = document.querySelector(".icon");
+const toggleButton = document.querySelector("#nav-icon");
 const mainNavbar = document.querySelector(".main-navbar");
 // const navLinks = document.querySelectorAll(".main-navbar");
 
 toggleButton.addEventListener('click', () => {
   mainNavbar.classList.toggle('appear');
+  toggleButton.classList.toggle('open');
 });
 
 
