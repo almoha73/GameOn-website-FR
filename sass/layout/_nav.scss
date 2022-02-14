@@ -34,98 +34,68 @@ nav.topnav {
     
 }
 .icon{
-    width: 45px;
-    height: 51px;
+    width: 26px;
+    height: 33px;
     display: none;
+    cursor: pointer;
+    z-index: 10;
     color: abstracts.$color-septenary;
-    &:hover #nav-icon span{
-        background-color: abstracts.$color-white;
-    }
-    &:hover{
-        background-color: abstracts.$color-septenary;;
-    }
     @media screen and (max-width: 1036px) {
-        display: block;
+        display: block; 
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 16px;
-        padding-left: 10px;
-        padding-right: 10px;
-        cursor: pointer;
-        z-index: 10;
-        
+    }
+    &:hover{
+        background-color: abstracts.$color-septenary;
+        border-radius: 6px;
+        padding: 7px 5px;
+        & path{
+            stroke: white;
+        }
     }
 }
-#nav-icon{
-    width: 30px;
-    height: 51px;
-    position: relative;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
-    cursor: pointer;
-    z-index: 10;
-    & span{
-        display: block;
-        position: absolute;
-        height: 4px;
-        width: 50%;
-        background: abstracts.$color-septenary;
-        opacity: 1;
-        transform: rotate(0deg);
-        transition: .25s ease-in-out;
-        &:nth-child(even){
-            left: 50%;
-            border-radius: 0 9px 9px 0;
-        }
-        &:nth-child(odd){
-            //left:0px;
-            border-radius: 9px 0 0 9px;
-        }
-        &:nth-child(1), &:nth-child(2) {
-            top: 14px;
-        }
-        &:nth-child(3), &:nth-child(4) {
-            top: 24px;
-        }
-        &:nth-child(5), &:nth-child(6) {
-            top: 34px;
-        }
-    }
-    &.open span:nth-child(1), &.open span:nth-child(6) {
-        transform: rotate(35deg);
-    }
-    &.open span:nth-child(2) ,&.open span:nth-child(5) {
-        transform: rotate(-35deg);
-    }
-    &.open span:nth-child(1) {
-        left: 5px;
-        top: 18px;
-    }
-    &.open span:nth-child(2) {
-        left: calc(50%);
-        top: 18px;
-    }
-    &.open span:nth-child(3) {
-        left: -50%;
-        opacity: 0;
-    }
-    &.open span:nth-child(4) {
-        left: 100%;
-        opacity: 0;
-    }
-    &.open span:nth-child(5) {
-        left: 5px;
-        top: 26px;
-    }
-    &.open span:nth-child(6) {
-        left: calc(50%);
-        top: 26px;
-    }
-    
+.header-logo, #nav-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-        
+.ham {
+    cursor: pointer;
+    transition: transform 400ms;
+    user-select: none;
+    .line {
+        fill:none;
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        stroke: abstracts.$color-septenary;
+        stroke-width:5.5;
+        stroke-linecap:round;
+    }
+    .top {
+        stroke-dasharray: 40 82;
+      }
+    .middle {
+        stroke-dasharray: 40 111;
+    }
+    .bottom {
+        stroke-dasharray: 40 161;
+    }
+    &.active {
+        transform: rotate(45deg);
+    }
+    &.active .top {
+        stroke-dasharray: 17 82;
+        stroke-dashoffset: -62px;
+    }
+    &.active .middle {
+        stroke-dashoffset: 23px;
+    }
+    &.active .bottom {
+        stroke-dashoffset: -83px;
+    }
+}
+       
 .main-navbar{
     width: 50%;
     display: flex;
@@ -136,9 +106,7 @@ nav.topnav {
             top: 0;
             left: 0;
             background: abstracts.$color-octonary;
-            @media screen and (max-width: 1036px) {
-                z-index: 4;
-            }
+            z-index: 4;
             background: linear-gradient(to top right, abstracts.$color-octonary, abstracts.$color-secondary);
             height: 100vh;
             width: 100%;  
