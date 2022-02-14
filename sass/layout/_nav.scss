@@ -105,7 +105,6 @@ nav.topnav {
             position: fixed;
             top: 0;
             left: 0;
-            background: abstracts.$color-octonary;
             z-index: 4;
             background: linear-gradient(to top right, abstracts.$color-octonary, abstracts.$color-secondary);
             height: 100vh;
@@ -136,6 +135,10 @@ nav.topnav {
         @media screen and (max-width: 1036px) {
             font-size: 2.3vmin;
             font-weight: 500;
+            color: abstracts.$color-white;
+        }
+        @media screen and (max-width: 766px){
+            font-size: 2.5vmax;
         }
         &.active {
             @include abstracts.navbar;
