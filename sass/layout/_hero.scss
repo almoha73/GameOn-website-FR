@@ -41,13 +41,14 @@ main {
             margin-left: 10%;
             margin-top: 6.5%;
             @media screen and (max-width: 1036px){ 
-                font-size: 7vmin;
+                font-size: 5vmin;
                 width: 100%;
                 margin-left: 0;
                 text-align: left;
+                margin-top: 1%;
             }
-            @media screen and (max-width: 768px){
-                font-size: 10.1vmin;
+            @media screen and (max-width: 766px){
+                font-size:  9.5vmin;
                 width: 100%;
                 margin: 0;
                 
@@ -62,17 +63,16 @@ main {
             font-size: 1.7vmax;
             text-align: left;
             @media screen and (max-width: 1036px){ 
-                font-size: 2vmin;
                 width: 100%;
                 margin-left: 0;
-                margin-top: 10%;
-                margin-bottom: 10%;
-                font-size: 3.4vmin;
+                margin-top: 4%;
+                margin-bottom: 4%;
+                font-size: 3vmin;
             }
-            @media screen and (max-width: 768px){
-                margin-top: 10%;
+            @media screen and (max-width: 766px){
+                margin-top: 4%;
                 margin-left: 0;
-                margin-bottom: 10%;
+                margin-bottom: 5%;
                 font-size: 3.4vmin;
                 width: 100%;
             }
@@ -102,7 +102,6 @@ main {
             display: block;
             padding: 0;
             @media screen and (max-width: 768px){
-                margin-bottom: 12%;
                 border-radius: 10px;
             }
           }
@@ -113,7 +112,7 @@ main {
             display: inline-block;
             @include abstracts.button;
             position: unset;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 12px 12px;
             width: 35vmin;
             text-transform: capitalize;
