@@ -67,7 +67,8 @@ form.addEventListener('submit', (e) => {
     setTimeout(() => {
     formChange()
     }, 1000);   
-}
+  }
+  
   closeForm();
 })
 // Focus et Blur des 5 premiers input
