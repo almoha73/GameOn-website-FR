@@ -5,7 +5,6 @@ main {
     font-weight: bolder;
     color: abstracts.$color-black;
     padding-top: 0.5vw;
-    border-radius: 2rem;
     text-align: justify;
     flex: 1;
     height: auto;
@@ -14,9 +13,8 @@ main {
 .hero-section{
     height: auto;
     display: flex;
-    border-radius: 10px;
+    border-radius: 8px;;
     box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-    // margin-bottom: 10px;
     @media screen and (max-width: 1036px){ 
         width: 100%;
         flex-direction: column;
@@ -27,6 +25,10 @@ main {
         background: #232323;
         color: #fff;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 8px 0 0 8px;
         @media screen and (max-width: 1036px){
             width: 100%;
             
@@ -36,8 +38,9 @@ main {
         }
         
         & h1.hero-headline{
-            width: 84vmin;
-            font-size: 10vmin;
+            width: 150%;
+            text-align: left;
+            font-size: 5.7vmax;
             margin-left: 10%;
             margin-top: 6.5%;
             @media screen and (max-width: 1036px){ 
@@ -57,7 +60,7 @@ main {
         & p{
             width: 80%;
             font-weight: normal;
-            margin-top: 15%;
+            //margin-top: 15%;
             padding: 0; 
             margin-left: 10%;
             font-size: 1.7vmax;
@@ -81,13 +84,14 @@ main {
             @include abstracts.button;
             outline: none;
             text-transform: capitalize;
-            font-size: 2vmin;
+            font-size: 1.3vmax;
             padding: 15px 20px;
-            left: 40%;
-            bottom: 50px;
+            margin-left: 10%;
+            margin-bottom: 10%;
             width: 15vmax;
             @media screen and (max-width: 1036px){ 
                 display: none;
+                font-size: 1.3vmin;
             }
         }
     }
@@ -101,6 +105,7 @@ main {
             height: 100%;
             display: block;
             padding: 0;
+            border-radius: 0 8px 8px 0;
             @media screen and (max-width: 766px){
                 border-radius: 10px;
             }
