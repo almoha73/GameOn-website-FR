@@ -110,12 +110,18 @@ form .formData{
             width: 50px;
             margin-right: 2px;
         }
+        @media screen and (min-width: 766px){
+            width: 70px;
+        } 
         & span{
             display: block;
         }
     }
     & .checkbox-label[for^="location2"]{
         width: 75px;
+        @media screen and (min-width: 766px){
+            width: 100px;
+        } 
     }
     & .checkbox2-label[for^="checkbox"]{
         margin-top: 17px;
@@ -141,6 +147,10 @@ form .formData{
         top: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
+        @media screen and (max-width: 766px){
+            @include abstracts.widthHeight(8px, 8px);
+            transform: translate(-55%, -55%);
+        }
     }
     & .checkbox-input, .checkbox-input-1 {
         display: none;
