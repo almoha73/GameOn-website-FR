@@ -9,15 +9,6 @@ toggleButton.addEventListener('click', () => {
 });
 
 
-// function editNav() {
-//   var x = document.getElementById("myTopnav");
-//   if (x.className === "topnav") {
-//     x.className += " responsive";
-//   } else {
-//     x.className = "topnav";
-//   }
-// }
-
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modal = document.querySelector('.modal-body');
@@ -52,6 +43,14 @@ function launchModal() {
   closeForm();
 }  
 
+//  Close modal form avec la croix
+function closeForm() {
+  closeModal.addEventListener('click', () => {
+  modalbg.style.display = 'none';
+  setTimeout(() => {
+    location.reload();
+  }, 1000);  
+ })}
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -67,10 +66,7 @@ form.addEventListener('submit', (e) => {
     
     setTimeout(() => {
     formChange()
-      
-    }, 1000);
-    
-    
+    }, 1000);   
 }
   closeForm();
 })
@@ -89,16 +85,6 @@ function focusBlur(){
   } 
 }
   
-//  Close modal form avec la croix
- function closeForm() {
-  closeModal.addEventListener('click', () => {
-  modalbg.style.display = 'none';
-  setTimeout(() => {
-    location.reload();
-  }, 1000);  
- })}
-
-
  // fonction changement d'apparence du formumaire après validation
  function formChange(){   
   modal.innerHTML = `<p style="font-size: 36px; margin-top: 300px; text-align: center;">Merci pour <br> votre inscription</p><input class="btn-close modal-btn" type="button" value="Fermer"/> `
@@ -122,95 +108,95 @@ closeAfterValidation();
 
 // Validations des champs
 
-  function validePrenom(){
-    //const prenomHelp = document.querySelector('.prenomHelp')
-    
-    if(prenom.value === ''){
-      prenomHelp.innerHTML = `Veuillez renseigner votre prénom`;
-      prenomHelp.style.color = 'white';
-      return false;
-    }else if(/^[a-zA-Zéè ]+$/.test(prenom.value) && prenom.value.length >= 2){
-      prenomHelp.innerHTML = `Prénom valide`;
-      prenomHelp.style.color = '#16d12f';
-      nom.focus();
-      prenom.style.border = '2px solid #16d12f';
-      return true;
-    }else{
-      prenomHelp.innerHTML = `Le prénom doit contenir 2 lettres minmum`;
-      prenomHelp.style.color = 'red';
-      prenom.style.border = '2px solid red';
-      return false;
-    } 
-    
-  }
+function validePrenom(){
+  //const prenomHelp = document.querySelector('.prenomHelp')
   
-  function valideNom(){
-  
-    if(nom.value === ''){
-      nomHelp.innerHTML = `Veuillez renseigner votre nom`;
-      nomHelp.style.color = 'white';
-      nom.style.border = '2px solid blue';
-      return false
-    }else if(/^[a-zA-Zéè ]+$/.test(nom.value) && nom.value.length >= 2){
-          nomHelp.innerHTML = `Nom valide`;
-          nomHelp.style.color = '#16d12f';
-          mail.focus();
-          nom.style.border = '2px solid #16d12f';
-          return true;
-          
-    }else{
-      nomHelp.innerHTML = `Le nom ne doit contenir que des lettres et avoir 2 caractères minimum`;
-      nomHelp.style.color = 'red';
-      nom.style.border = '2px solid red';
-      return false;
-    }
-    
-  }
-
-  function valideMail(){
-    if(mail.value === ''){
-      mailHelp.innerHTML = `Le mail est obligatoire`;
-      mailHelp.style.color = 'white';
-      mail.style.border = '2px solid blue';
-      return false
-  }else if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value))){
-      mailHelp.innerHTML = 'Mail valide';
-      mailHelp.style.color = '#16d12f';
-      birth.focus();
-      mail.style.border = '2px solid #16d12f';
-      return true;
-      
+  if(prenom.value === ''){
+    prenomHelp.innerHTML = `Veuillez renseigner votre prénom`;
+    prenomHelp.style.color = 'white';
+    return false;
+  }else if(/^[a-zA-Zéè ]+$/.test(prenom.value) && prenom.value.length >= 2){
+    prenomHelp.innerHTML = `Prénom valide`;
+    prenomHelp.style.color = '#16d12f';
+    nom.focus();
+    prenom.style.border = '2px solid #16d12f';
+    return true;
   }else{
-    mailHelp.innerHTML = 'Le mail est invalide';
-    mailHelp.style.color = 'red';
-    mail.style.border = '2px solid red';
+    prenomHelp.innerHTML = `Le prénom doit contenir 2 lettres minmum`;
+    prenomHelp.style.color = 'red';
+    prenom.style.border = '2px solid red';
+    return false;
+  } 
+  
+}
+  
+function valideNom(){
+
+  if(nom.value === ''){
+    nomHelp.innerHTML = `Veuillez renseigner votre nom`;
+    nomHelp.style.color = 'white';
+    nom.style.border = '2px solid blue';
+    return false
+  }else if(/^[a-zA-Zéè ]+$/.test(nom.value) && nom.value.length >= 2){
+        nomHelp.innerHTML = `Nom valide`;
+        nomHelp.style.color = '#16d12f';
+        mail.focus();
+        nom.style.border = '2px solid #16d12f';
+        return true;
+        
+  }else{
+    nomHelp.innerHTML = `Le nom ne doit contenir que des lettres et avoir 2 caractères minimum`;
+    nomHelp.style.color = 'red';
+    nom.style.border = '2px solid red';
     return false;
   }
   
 }
 
-function valideBirth(){
-  const birthday = new Date(birth.value);
-  const todayTime = new Date()//.toISOString().split('T')[0];
-  const dateMin = new Date(1920, 0, 1);    
-  const ageMax = new Date(todayTime - 378432000000)//.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
-      birth.style.border = '2px solid blue';
-      birthHelp.innerHtml = 'champ obligatoire';
+function valideMail(){
+  if(mail.value === ''){
+    mailHelp.innerHTML = `Le mail est obligatoire`;
+    mailHelp.style.color = 'white';
+    mail.style.border = '2px solid blue';
+    return false
+}else if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value))){
+    mailHelp.innerHTML = 'Mail valide';
+    mailHelp.style.color = '#16d12f';
+    birth.focus();
+    mail.style.border = '2px solid #16d12f';
+    return true;
     
-   if(birthday > todayTime || birthday >= ageMax || birthday <= dateMin){
-      birth.style.border = '2px solid red';
-      birthHelp.innerHTML = 'date de naissance invalide';
-      birthHelp.style.color = 'red';
-      return false;
-    }else if(birthday < todayTime && birthday <= ageMax && birthday >= dateMin){
-      
-      birthHelp.innerHTML = 'Date de naissance valide';
-      birthHelp.style.color = '#16d12f';
-      quantity.focus();
-      birth.style.border = '2px solid #16d12f';
-      return true;
-    }
+}else{
+  mailHelp.innerHTML = 'Le mail est invalide';
+  mailHelp.style.color = 'red';
+  mail.style.border = '2px solid red';
+  return false;
+}
+
+}
+
+function valideBirth(){
+const birthday = new Date(birth.value);
+const todayTime = new Date()//.toISOString().split('T')[0];
+const dateMin = new Date(1920, 0, 1);    
+const ageMax = new Date(todayTime - 378432000000)//.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
+    birth.style.border = '2px solid blue';
+    birthHelp.innerHtml = 'champ obligatoire';
+  
+  if(birthday > todayTime || birthday >= ageMax || birthday <= dateMin){
+    birth.style.border = '2px solid red';
+    birthHelp.innerHTML = 'date de naissance invalide';
+    birthHelp.style.color = 'red';
+    return false;
+  }else if(birthday < todayTime && birthday <= ageMax && birthday >= dateMin){
+    
+    birthHelp.innerHTML = 'Date de naissance valide';
+    birthHelp.style.color = '#16d12f';
+    quantity.focus();
+    birth.style.border = '2px solid #16d12f';
+    return true;
   }
+}
 
 function valideQuantity(){
   if(quantity.value === ''){

@@ -18,6 +18,7 @@ nav.topnav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
     @media screen and (max-width: 1036px) {
         z-index: 4;
     }
