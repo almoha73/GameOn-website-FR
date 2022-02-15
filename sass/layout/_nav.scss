@@ -1,11 +1,11 @@
 @use '../abstracts';
 
 nav.topnav {
-    width: 96%;
+    width: 92%;
     height: auto;
     margin-top: 3.5%;
     margin-bottom: 3.5%;
-    // overflow: hidden;
+    margin-left: 3.5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,13 +18,13 @@ nav.topnav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
     @media screen and (max-width: 1036px) {
         z-index: 4;
+        //position: fixed;
     }
     .header-logo img{
         width: 100%;
-        margin-left: 20%;
+        //margin-left: 20%;
         @media screen and (max-width: 1036px) {
             margin-left: 0;
         }
@@ -35,6 +35,8 @@ nav.topnav {
     
 }
 .icon{
+    //position: fixed;
+    right: 4%;
     width: 26px;
     height: 33px;
     display: none;
@@ -81,6 +83,9 @@ nav.topnav {
     }
     .bottom {
         stroke-dasharray: 40 161;
+    }
+    &.active{
+        position: fixed;
     }
     &.active {
         transform: rotate(45deg);

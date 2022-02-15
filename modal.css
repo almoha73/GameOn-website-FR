@@ -19,10 +19,11 @@ body {
 }
 
 nav.topnav {
-  width: 96%;
+  width: 92%;
   height: auto;
   margin-top: 3.5%;
   margin-bottom: 3.5%;
+  margin-left: 3.5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +39,6 @@ nav.topnav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
 }
 @media screen and (max-width: 1036px) {
   .navbar-responsive {
@@ -47,7 +47,6 @@ nav.topnav {
 }
 .navbar-responsive .header-logo img {
   width: 100%;
-  margin-left: 20%;
 }
 @media screen and (max-width: 1036px) {
   .navbar-responsive .header-logo img {
@@ -61,6 +60,7 @@ nav.topnav {
 }
 
 .icon {
+  right: 4%;
   width: 26px;
   height: 33px;
   display: none;
@@ -111,6 +111,9 @@ nav.topnav {
 }
 .ham .bottom {
   stroke-dasharray: 40 161;
+}
+.ham.active {
+  position: fixed;
 }
 .ham.active {
   transform: rotate(45deg);
@@ -196,7 +199,6 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  border-radius: 2rem;
   text-align: justify;
   flex: 1;
   height: auto;
@@ -206,7 +208,7 @@ main {
 .hero-section {
   height: auto;
   display: flex;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 1036px) {
@@ -221,6 +223,10 @@ main {
   background: #232323;
   color: #fff;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px 0 0 8px;
 }
 @media screen and (max-width: 1036px) {
   .hero-section .hero-content {
@@ -230,8 +236,9 @@ main {
   }
 }
 .hero-section .hero-content h1.hero-headline {
-  width: 84vmin;
-  font-size: 10vmin;
+  width: 150%;
+  text-align: left;
+  font-size: 5.7vmax;
   margin-left: 10%;
   margin-top: 6.5%;
 }
@@ -254,7 +261,6 @@ main {
 .hero-section .hero-content p {
   width: 80%;
   font-weight: normal;
-  margin-top: 15%;
   padding: 0;
   margin-left: 10%;
   font-size: 1.7vmax;
@@ -287,21 +293,18 @@ main {
   color: white;
   cursor: pointer;
   border: 0;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   outline: none;
   text-transform: capitalize;
-  font-size: 2vmin;
+  font-size: 1.3vmax;
   padding: 15px 20px;
-  left: 40%;
-  bottom: 50px;
+  margin-left: 10%;
+  margin-bottom: 10%;
   width: 15vmax;
 }
 @media screen and (max-width: 1036px) {
   .hero-section .hero-content button.btn-signup {
     display: none;
+    font-size: 1.3vmin;
   }
 }
 .hero-section .hero-img {
@@ -317,6 +320,7 @@ main {
   height: 100%;
   display: block;
   padding: 0;
+  border-radius: 0 8px 8px 0;
 }
 @media screen and (max-width: 766px) {
   .hero-section .hero-img img {
@@ -337,10 +341,6 @@ main {
     color: white;
     cursor: pointer;
     border: 0;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     position: unset;
     margin: 30px auto;
     padding: 12px 12px;
@@ -590,10 +590,6 @@ p.text-label {
   color: white;
   cursor: pointer;
   border: 0;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 @media screen and (max-width: 766px) {
   .btn-submit, .btn-close {
