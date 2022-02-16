@@ -21,12 +21,12 @@
         overflow: hidden;
         position: relative;
         color: abstracts.$color-white;
-        //padding-top: 10px;
+        padding-top: 10px;
+        @media screen and (max-width: 374px){
+        }
         @media screen and (max-width: 766px){
                 margin: 9vh auto 0;
                 width: 100%;
-                min-height: 0;
-                max-height: 657px;
                 border-radius: 8px 8px 0 0;;
         }
         @media screen and (max-width: 1036px) {
@@ -36,12 +36,14 @@
             padding: 15px 8%;
             margin: 15px auto;
             @media screen and (max-width: 766px){
-                padding: 5px 8%;
-                height: 570px;
+                
+                height: 650px;
+               
             }
         }
       }
 }
+
 form .formData1, form .formData{
     & label {
         font-family: abstracts.$font-default;

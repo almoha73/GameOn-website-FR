@@ -374,13 +374,12 @@ main {
   overflow: hidden;
   position: relative;
   color: white;
+  padding-top: 10px;
 }
 @media screen and (max-width: 766px) {
   .bground .content {
     margin: 9vh auto 0;
     width: 100%;
-    min-height: 0;
-    max-height: 657px;
     border-radius: 8px 8px 0 0;
   }
 }
@@ -395,8 +394,7 @@ main {
 }
 @media screen and (max-width: 766px) {
   .bground .content .modal-body {
-    padding: 5px 8%;
-    height: 570px;
+    height: 650px;
   }
 }
 
