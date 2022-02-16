@@ -10,10 +10,10 @@
     overflow: hidden;
     background-color: abstracts.$color-tertiary;
     .content {
-        margin: 5% auto;
+        margin: 2% auto;
         width: 100%;
         max-width: 500px;
-        min-height: 850px;
+        max-height: 850px;
         animation-name: modalopen;
         animation-duration: 0.8s;
         background: abstracts.$color-quaternary;
@@ -21,7 +21,7 @@
         overflow: hidden;
         position: relative;
         color: abstracts.$color-white;
-        padding-top: 10px;
+        //padding-top: 10px;
         @media screen and (max-width: 766px){
                 margin: 9vh auto 0;
                 width: 100%;
@@ -71,14 +71,22 @@ form .formData1, form .formData{
             }
           }
     }
+
     & p.help{
+        width: 100%;
+        height: 12px;
         margin-top: 3px;
         font-size: 12px;
         font-weight: normal;
         @media screen and (max-width: 766px){
-            font-size: 10px;
+            font-size: 11px;
         }
-      }
+    }
+    & span.help{
+        font-size: 10px;
+        line-height: 35px;
+        margin: auto;
+    }
 }
 .radio-input{
     @media screen and (max-width: 766px){
@@ -112,10 +120,8 @@ form .formData{
         }
         @media screen and (min-width: 766px){
             width: 70px;
+            margin-top: 5px;
         } 
-        & span{
-            display: block;
-        }
     }
     & .checkbox-label[for^="location2"]{
         width: 75px;
@@ -124,7 +130,10 @@ form .formData{
         } 
     }
     & .checkbox2-label[for^="checkbox"]{
-        margin-top: 17px;
+        margin-top: 10px;
+        @media screen and (max-width: 766px){
+            margin-top: 0px;
+        }
     }
     & .checkbox-label .checkbox-icon,.checkbox2-label .checkbox-icon {
         display: block;
@@ -193,11 +202,25 @@ p.text-label{
         margin-bottom: 0px;
     }
 }
+.checkbox2-label{
+    margin-bottom: 0;
+}
+span.obligatoire{
+    font-size: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    width: 42px;
+    height: 10px;
+}
 .btn-submit, .btn-close{
     @include abstracts.button;
     @media screen and (max-width: 766px){
         padding: 10px 45px;
-        font-size: 12px;    
+        font-size: 12px; 
+        margin: 10px auto;  
+    }
+    @media screen and (min-width: 766px){
+        margin: 10px auto;
     }
     
 }

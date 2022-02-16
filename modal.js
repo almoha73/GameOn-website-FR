@@ -242,14 +242,10 @@ function valideConditions (){
   if(checkbox1.checked === true){
     obligatoire.innerHTML = `Merci !`;
     obligatoire.style.color = '#16d12f';
-    obligatoire.style.fontSize = '13px';
-    obligatoire.style.marginLeft = '50px';
     return true;
   }else if(checkbox1 === false){
     obligatoire.innerHTML = `obligatoire`;
     obligatoire.style.color = 'red';
-    obligatoire.style.fontSize = '13px';
-    obligatoire.style.marginLeft = '50px';
     return false;
   }
 

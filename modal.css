@@ -363,10 +363,10 @@ main {
   background-color: #1a279c66;
 }
 .bground .content {
-  margin: 5% auto;
+  margin: 2% auto;
   width: 100%;
   max-width: 500px;
-  min-height: 850px;
+  max-height: 850px;
   animation-name: modalopen;
   animation-duration: 0.8s;
   background: #232323;
@@ -374,7 +374,6 @@ main {
   overflow: hidden;
   position: relative;
   color: white;
-  padding-top: 10px;
 }
 @media screen and (max-width: 766px) {
   .bground .content {
@@ -435,14 +434,21 @@ form .formData1 input.text-control, form .formData input.text-control {
   }
 }
 form .formData1 p.help, form .formData p.help {
+  width: 100%;
+  height: 12px;
   margin-top: 3px;
   font-size: 12px;
   font-weight: normal;
 }
 @media screen and (max-width: 766px) {
   form .formData1 p.help, form .formData p.help {
-    font-size: 10px;
+    font-size: 11px;
   }
+}
+form .formData1 span.help, form .formData span.help {
+  font-size: 10px;
+  line-height: 35px;
+  margin: auto;
 }
 
 @media screen and (max-width: 766px) {
@@ -479,10 +485,8 @@ form .formData .checkbox2-label {
 @media screen and (min-width: 766px) {
   form .formData .checkbox-label[for^=location] {
     width: 70px;
+    margin-top: 5px;
   }
-}
-form .formData .checkbox-label[for^=location] span {
-  display: block;
 }
 form .formData .checkbox-label[for^=location2] {
   width: 75px;
@@ -493,7 +497,12 @@ form .formData .checkbox-label[for^=location2] {
   }
 }
 form .formData .checkbox2-label[for^=checkbox] {
-  margin-top: 17px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 766px) {
+  form .formData .checkbox2-label[for^=checkbox] {
+    margin-top: 0px;
+  }
 }
 form .formData .checkbox-label .checkbox-icon, form .formData .checkbox2-label .checkbox-icon {
   display: block;
@@ -581,6 +590,18 @@ p.text-label {
   }
 }
 
+.checkbox2-label {
+  margin-bottom: 0;
+}
+
+span.obligatoire {
+  font-size: 10px;
+  display: inline-block;
+  margin-left: 10px;
+  width: 42px;
+  height: 10px;
+}
+
 .btn-submit, .btn-close {
   background: #fe142f;
   display: block;
@@ -595,6 +616,12 @@ p.text-label {
   .btn-submit, .btn-close {
     padding: 10px 45px;
     font-size: 12px;
+    margin: 10px auto;
+  }
+}
+@media screen and (min-width: 766px) {
+  .btn-submit, .btn-close {
+    margin: 10px auto;
   }
 }
 
