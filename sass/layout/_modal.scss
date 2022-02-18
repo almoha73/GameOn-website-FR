@@ -22,8 +22,6 @@
         position: relative;
         color: abstracts.$color-white;
         padding-top: 10px;
-        @media screen and (max-width: 374px){
-        }
         @media screen and (max-width: 766px){
                 margin: 9vh auto 0;
                 width: 100%;
@@ -36,9 +34,7 @@
             padding: 15px 8%;
             margin: 15px auto;
             @media screen and (max-width: 766px){
-                
-                height: 650px;
-               
+                height: 650px; 
             }
         }
       }
