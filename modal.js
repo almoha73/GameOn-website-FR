@@ -45,7 +45,7 @@ function launchModal() {
 //  Close modal formulaire avec la croix
 function closeForm() {
   closeModal.addEventListener('click', () => {
-  modalbg.style.display = 'none';
+  closeModal.style.display = 'none';
   setTimeout(() => {
     location.reload();
   }, 1000);  
@@ -70,48 +70,89 @@ function focusBlur(){
 
  // fonction changement d'apparence du formumaire après validation
  function formChange(){   
-  modal.innerHTML = `<p style="font-size: 36px; margin-top: 300px; text-align: center;">Merci pour <br> votre inscription</p><input style="margin-top: 300px"class="btn-close modal-btn" type="button" value="Fermer"/> `
-  modal.style.maxWidth = '500px'
-  modal.style.minHeight = '650px'
-
   //close modal après validation
-  function closeAfterValidation(){
-    const btnClose = document.querySelector('.btn-close')
-  btnClose.addEventListener('click', () => {
-   modalbg.style.display = 'none';
-   setTimeout(() => {
-     location.reload();
-   }, 1000);  
-  })
+      const btnSubmit = document.querySelector('.btn-submit');
+      const formValid = document.querySelector('.formValid');
+      const modalbg2 = document.querySelector('.bground-2');
+
+    btnSubmit.addEventListener('click', () => {
+    modalbg.style.display = 'none';
+    modalbg2.style.display = 'block'; 
+    })
+    const btnCloseModal = document.querySelector('.btn-closeModal')
+    btnCloseModal.addEventListener('click', () => {
+      modalbg.style.display = 'none';
+      modalbg2.style.display = 'none';
+      setTimeout(() => {
+        location.reload();
+      }, 1000); 
+    })
 }
-closeAfterValidation();
-} 
+  
+
+
 
 // Validations des champs prenom et nom
 function valideIdentity(nameText, nameValue, nameHelp, nameStyle){
   if(nameValue === ''){
       nameHelp.innerHTML = `Veuillez renseigner votre ${nameText}`;
-      nameHelp.style.color = 'red';
-      nameStyle.border = '2px solid red';
+      errors.errorIdentity(nameHelp, nameStyle);
+      // nameHelp.style.color = 'red';
+      // nameStyle.border = '2px solid red';
       return false;
   }else if(/^[a-zA-Zéè ]+$/.test(nameValue) && nameValue.length >= 2){
     nameHelp.innerHTML = `${nameText} valide`;
     nameHelp.style.color = '#16d12f';
     nom.focus();
+      if(nameValue === nom.value){
+        mail.focus();
+      }
     nameStyle.border = '2px solid #16d12f';
     return true;
   }else{
     nameHelp.innerHTML = `Le ${nameText} ne doit contenir que des lettres et avoir 2 caractères minimum`;
-    nameHelp.style.color = 'red';
-    nameStyle.border = '2px solid red';
+    errors.errorIdentity();
+    // nameHelp.style.color = 'red';
+    // nameStyle.border = '2px solid red';
     return false;
   }
 }
 
+const errors = {
+    errorIdentity(nameHelp, nameStyle){
+      nameHelp.style.color = 'red';
+      nameStyle.border = '2px solid red';
+    },
+    errorMail(){
+      mailHelp.innerHTML = 'Le mail est invalide';
+      mailHelp.style.color = 'red';
+      mail.style.border = '2px solid red';
+    },
+    errorBirth(){
+      birth.style.border = '2px solid red';
+      birthHelp.innerHTML = 'date de naissance invalide';
+      birthHelp.style.color = 'red';
+    },
+    errorQuantity(){
+      quantityHelp.innerHTML = 'champ obligatoire';
+      quantityHelp.style.color = 'red';
+      quantity.style.border = '2px solid red';
+    },
+    errorRadio(){
+      radioHelp.innerHTML = 'Vous devez cocher un choix';
+      radioHelp.style.color = 'red';
+    },
+    errorConditions(){
+      obligatoire.innerHTML = `obligatoire`;
+      obligatoire.style.color = 'red';
+    }
+}
+console.log(errors);
+
 function valideMail(){
   if(mail.value === ''){
     mailHelp.innerHTML = `Le mail est obligatoire`;
-    mailHelp.style.color = 'white';
+    mailHelp.style.color = 'red';
     //mail.style.border = '2px solid blue';
     return false
 }else if((/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value))){
@@ -122,9 +163,7 @@ function valideMail(){
     return true;
     
 }else{
-  mailHelp.innerHTML = 'Le mail est invalide';
-  mailHelp.style.color = 'red';
-  mail.style.border = '2px solid red';
+  errors.errorMail();
   return false;
 }
 
@@ -139,9 +178,7 @@ const ageMax = new Date(todayTime - 378432000000)//.toISOString().split('T')[0] 
     birthHelp.innerHtml = 'champ obligatoire';
   
   if(birthday > todayTime || birthday >= ageMax || birthday <= dateMin){
-    birth.style.border = '2px solid red';
-    birthHelp.innerHTML = 'date de naissance invalide';
-    birthHelp.style.color = 'red';
+    errors.errorBirth();
     return false;
   }else if(birthday < todayTime && birthday <= ageMax && birthday >= dateMin){
     
@@ -155,10 +192,7 @@ const ageMax = new Date(todayTime - 378432000000)//.toISOString().split('T')[0] 
 
 function valideQuantity(){
   if(quantity.value === ''){
-    quantityHelp.innerHTML = 'champ obligatoire';
-    quantityHelp.style.color = 'red';
-    quantity.style.border = '2px solid red';
-    return false;
+    errors.errorQuantity();
   }else{
     quantityHelp.innerHTML = 'champ valide';
     quantityHelp.style.color = '#16d12f';
@@ -182,8 +216,9 @@ function valideRadio() {
     radioHelp.style.color = '#16d12f';
     return true;
   }else{
-    radioHelp.innerHTML = 'Vous devez cocher un choix';
-    radioHelp.style.color = 'red';
+    errors.errorRadio();
+    // radioHelp.innerHTML = 'Vous devez cocher un choix';
+    // radioHelp.style.color = 'red';
     return false;
   }
     
@@ -198,8 +233,7 @@ function valideConditions (){
     obligatoire.style.color = '#16d12f';
     return true;
   }else if(checkbox1 === false){
-    obligatoire.innerHTML = `obligatoire`;
-    obligatoire.style.color = 'red';
+    errors[5];
     return false;
   }
 
