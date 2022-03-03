@@ -93,6 +93,9 @@ main {
                 display: none;
                 font-size: 1.3vmin;
             }
+            &:hover{
+                background: abstracts.$color-secondary;
+            } 
         }
     }
     .hero-img{
@@ -123,6 +126,7 @@ main {
             text-transform: capitalize;
             transform: initial;
             font-size: 1.7vmax;
-        }  
+        } 
+        
     }
 }

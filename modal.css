@@ -307,6 +307,9 @@ main {
     font-size: 1.3vmin;
   }
 }
+.hero-section .hero-content button.btn-signup:hover {
+  background: #3876ac;
+}
 .hero-section .hero-img {
   width: 60%;
 }
@@ -681,6 +684,9 @@ span.obligatoire {
   .btn-submit, .btn-close {
     margin: 10px auto;
   }
+}
+.btn-submit:hover, .btn-close:hover {
+  background: #3876ac;
 }
 
 .close {

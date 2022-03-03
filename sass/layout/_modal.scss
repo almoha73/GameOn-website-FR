@@ -273,6 +273,9 @@ span.obligatoire{
     @media screen and (min-width: 766px){
         margin: 10px auto;
     }
+    &:hover{
+        background: #3876ac;
+    }
     
 }
 
