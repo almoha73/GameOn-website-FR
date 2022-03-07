@@ -38,8 +38,8 @@ function launchModal() {
   focusBlur();
 }
 
-/// Fonction RESET après envoi du formulaire
-function reset (){
+// Fonction RESET après envoi du formulaire
+function resetField (){
   for(let i = 0; i < inputField.length; i++){
     inputField[i].value = "";
     inputField[i].style.border = "transparent";
@@ -60,7 +60,7 @@ closeModal.forEach((btn) => btn.addEventListener("click", closeForm));
 function closeForm() {
     modalbg.style.display = "none";
     modalbg2.style.display = "none";
-    reset();
+    form.reset();
 };
 
 
@@ -91,23 +91,16 @@ function formChange() {
   btnCloseModal.addEventListener("click", () => {
     modalbg.style.display = "none";
     modalbg2.style.display = "none";
-    reset();
     
   });
 }
 
 
 function valideForm() {
-
-  inputField.forEach((input) => input.addEventListener('input', () => {
-
-  })
-
-  
-  // for (let i = 0; i < inputField.length; i++) {
-  //   const type = inputField[i].getAttribute("id");
-  //   let paragraphe = inputField[i].nextElementSibling;
-  //   console.log(i);
+  for (let i = 0; i < inputField.length; i++) {
+    const type = inputField[i].getAttribute("id");
+    let paragraphe = inputField[i].nextElementSibling;
+    console.log(i);
     switch (type) {
       case "first":
 
@@ -170,7 +163,7 @@ function valideForm() {
         const birthday = new Date(inputField[i].value);
         const todayTime = new Date(); //.toISOString().split('T')[0];
         const dateMin = new Date(1920, 0, 1);
-        const ageMax = new Date(todayTime - 378432000000); //.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
+        const ageMax = new Date(todayTime - 315576e5 * 12); //.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
        
         message(paragraphe, `Le champ est obligatoire`, '#fe142f');
         inputField[i].style.border = "2px solid #fe142f";
@@ -200,6 +193,7 @@ function valideForm() {
 
         break;
     }
+    
   }
   return true;
 }
@@ -247,8 +241,10 @@ form.addEventListener("submit", (e) => {
   ) {
     setTimeout(() => {
       formChange();
-      closeForm();
     }, 1000);
+    closeForm();
+    form.reset(); 
+    resetField();
   }
   
-});
+})
