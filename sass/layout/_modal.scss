@@ -135,7 +135,7 @@ form .formData1, form .formData{
             font-size: 11px;
         }
     }
-    & span.help{
+    & span.radioHelp{
         font-size: 10px;
         line-height: 35px;
         margin: auto;
@@ -258,12 +258,10 @@ p.text-label{
 .checkbox2-label{
     margin-bottom: 0;
 }
-span.obligatoire{
+.obligatoire{
     font-size: 10px;
     display: inline-block;
-    margin-left: 10px;
-    width: 42px;
-    height: 10px;
+    margin-left: 20px;
 }
 .btn-submit, .btn-close{
     @include abstracts.button;

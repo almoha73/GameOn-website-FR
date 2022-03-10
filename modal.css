@@ -506,7 +506,7 @@ form .formData1 p.help, form .formData p.help {
     font-size: 11px;
   }
 }
-form .formData1 span.help, form .formData span.help {
+form .formData1 span.radioHelp, form .formData span.radioHelp {
   font-size: 10px;
   line-height: 35px;
   margin: auto;
@@ -655,12 +655,10 @@ p.text-label {
   margin-bottom: 0;
 }
 
-span.obligatoire {
+.obligatoire {
   font-size: 10px;
   display: inline-block;
-  margin-left: 10px;
-  width: 42px;
-  height: 10px;
+  margin-left: 20px;
 }
 
 .btn-submit, .btn-close {

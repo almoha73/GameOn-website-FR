@@ -47,7 +47,7 @@ function closeForm() {
     closeModal.style.display = "none";
     setTimeout(() => {
       location.reload();
-    }, 1000);
+    }, 200);
   });
 }
 
@@ -186,27 +186,29 @@ function valideQuantity() {
 
 function valideRadio() {
   let radioChecked = 0;
-
+  error(radioHelp, `Champ obligatoire`);
   for (let i = 0; i < radio.length; i++) {
     if (radio[i].checked) {
       radioChecked++;
-      break;
+
+      if (radioChecked) {
+        messageOK(radioHelp, `Vous avez choisi ${radio[i].value}`);
+        return true;
+      } else {
+        error(radioHelp, `Champ obligatoire`);
+        return false;
+      }
     }
   }
-
-  if (radioChecked) {
-    messageOK(radioHelp, "Vous avez choisi")
-    return true;
-  } else {
-    error(radioHelp, `Champ obligatoire`);
-    return false;
-  }
+    
 }
+  
+valideRadio()
 
 function valideConditions() {
   const checkbox1 = document.querySelector("#checkbox1");
   const obligatoire = document.querySelector(".obligatoire");
-
+  error(obligatoire, `Obligatoire`);
   if (checkbox1.checked === true) {
     obligatoire.innerHTML = `Merci !`;
     obligatoire.style.color = "#16d12f";
@@ -216,7 +218,7 @@ function valideConditions() {
     return false;
   }
 }
-
+valideConditions();
 //Validation du formulaire
 form.addEventListener("submit", (e) => {
   e.preventDefault();
