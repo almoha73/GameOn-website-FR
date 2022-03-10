@@ -64,6 +64,11 @@ function closeForm() {
     modalbg2.style.display = "none";
 };
 
+// Reset avec bouton btnSubmit
+
+function submitReset(){
+  btnSubmit.addEventListener('click', resetField);
+}
 
 // Focus et Blur des 5 premiers input
 function focusBlur() {
@@ -100,6 +105,7 @@ function formChange() {
 
 
 function valideForm() {
+  let error = 0;
   for (let i = 0; i < inputField.length; i++) {
     const type = inputField[i].getAttribute("id");
     let paragraphe = inputField[i].nextElementSibling;
@@ -110,6 +116,7 @@ function valideForm() {
         if (inputField[i].value === "" || inputField[i].value === null) {
           message(paragraphe, `Veuillez renseigner votre prénom`, '#fe142f');
           inputField[i].style.border = "2px solid #fe142f";
+          error = error + 1;
         } else if (
           /^[a-zA-Zéè ]+$/.test(inputField[i].value.trim()) &&
           inputField[i].value.length >= 2
@@ -117,6 +124,7 @@ function valideForm() {
           message(paragraphe, `Prénom valide`, '#70e000');
           inputField[i + 1].focus();
           inputField[i].style.border = "2px solid #70e000";
+          
         }
         
         break;
@@ -126,6 +134,7 @@ function valideForm() {
         if (inputField[i].value === "" || inputField[i].value === null) {
           message(paragraphe, `Veuillez renseigner votre nom`, '#fe142f');
           inputField[i].style.border = "2px solid #fe142f";
+          error = error + 1;
         } else if (
           /^[a-zA-Zéè ]+$/.test(inputField[i].value.trim()) &&
           inputField[i].value.length >= 2
@@ -133,6 +142,7 @@ function valideForm() {
           message(paragraphe, `Nom valide`, '#70e000');
           inputField[i + 1].focus();
           inputField[i].style.border = "2px solid #70e000";
+          
         }
 
         break;
@@ -142,12 +152,14 @@ function valideForm() {
         if (inputField[i].value === "" || inputField[i].value === null) {
           message(paragraphe, `Le mail est obligatoire`, '#fe142f');
           inputField[i].style.border = "2px solid #fe142f";
+          error = error + 1;
         } else if (
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
             inputField[i].value.trim())){
               message(paragraphe, `Mail valide`, '#70e000');
               inputField[i + 1].focus();
               inputField[i].style.border = "2px solid #70e000";
+              
         }
 
         break;
@@ -163,6 +175,7 @@ function valideForm() {
         if (birthday > todayTime || birthday >= ageMax || birthday <= dateMin) {
           message(paragraphe, `Le champ est invalide`, '#fe142f');
           inputField[i].style.border = "2px solid #fe142f";
+          error = error + 1;
         } else if (
           birthday < todayTime &&
           birthday <= ageMax &&
@@ -171,6 +184,7 @@ function valideForm() {
           message(paragraphe, `Date de naissance valide`, '#70e000');
           inputField[i + 1].focus();
           inputField[i].style.border = "2px solid #70e000";
+          
         }
 
         break;
@@ -179,19 +193,21 @@ function valideForm() {
         if (inputField[i].value === "" || inputField[i].value === null) {
           message(paragraphe, `Le champ est invalide`, '#fe142f');
           inputField[i].style.border = "2px solid #fe142f";
+          error = error + 1;
         } else {
           message(paragraphe, 'Champ valide', "#70e000");
           inputField[i].style.border = "2px solid #16d12f";
+          
         }
 
         break;
-    } 
+    }
   }
-  return true;
+  return error <= 0;
+  
 }
 
-function valideRadio() {
-  
+function valideRadio() {  
   for (let i = 0; i < radio.length; i++) {
     if (radio[i].checked) {
       radioChecked++;
@@ -235,9 +251,7 @@ form.addEventListener("submit", (e) => {
       formChange();
     }, 1000);
     closeForm();
-    btnSubmit.disabled = true;
-  }else{
-    alert(`le formulaire n'est pas rempli` );
+    submitReset();
   }
   
 })
