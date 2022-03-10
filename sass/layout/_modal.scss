@@ -1,28 +1,13 @@
 @use '../abstracts';
 
 .bground {
-    display: none;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    @include abstracts.widthHeight(100%, 100%);
-    overflow: hidden;
-    background-color: abstracts.$color-tertiary;
+    @include abstracts.bground;
     .content {
-        //display: none;
-        margin: 2% auto;
+        @include abstracts.bgroundContent;
         width: 100%;
-        max-width: 500px;
-        max-height: 850px;
         animation-name: modalopen;
         animation-duration: 0.8s;
-        background: abstracts.$color-quaternary;
-        border-radius: 8px;
         overflow: hidden;
-        position: relative;
-        color: abstracts.$color-white;
-        padding-top: 10px;
         @media screen and (max-width: 766px){
                 margin: 9vh auto 0;
                 width: 100%;
@@ -45,24 +30,10 @@
 }
 
 .bground-2{
-    display: none;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    @include abstracts.widthHeight(100%, 100%);
-    overflow: hidden;
-    background-color: abstracts.$color-tertiary;
+    @include abstracts.bground;
     .formValid{
-        margin: 2% auto;
-        max-width: 500px;
-        height: 850px; 
-        border-radius: 8px;
-        //overflow: hidden;
-        position: relative;
-        background: abstracts.$color-quaternary; 
-        color: abstracts.$color-white;
-        padding-top: 10px;
+        @include abstracts.bgroundContent;
+        
             @media screen and (max-width: 766px){
                 height: 620px; 
                 margin: 9vh auto 0;

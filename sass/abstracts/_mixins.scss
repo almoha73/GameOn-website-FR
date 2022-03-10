@@ -31,3 +31,25 @@
     position: absolute;
     transition: 0.3s;
 }
+
+@mixin bground{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+   @include widthHeight(100%, 100%);
+    overflow: hidden;
+    background-color: variables.$color-tertiary;
+}
+
+@mixin bgroundContent{
+    margin: 2% auto;
+    max-width: 500px;
+    height: 850px; 
+    border-radius: 8px;
+    position: relative;
+    padding-top: 10px;
+    background: variables.$color-quaternary;
+    color: variables.$color-white;
+}

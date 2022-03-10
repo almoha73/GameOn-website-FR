@@ -367,17 +367,17 @@ main {
 }
 .bground .content {
   margin: 2% auto;
-  width: 100%;
   max-width: 500px;
-  max-height: 850px;
+  height: 850px;
+  border-radius: 8px;
+  position: relative;
+  padding-top: 10px;
+  background: #232323;
+  color: white;
+  width: 100%;
   animation-name: modalopen;
   animation-duration: 0.8s;
-  background: #232323;
-  border-radius: 8px;
   overflow: hidden;
-  position: relative;
-  color: white;
-  padding-top: 10px;
 }
 @media screen and (max-width: 766px) {
   .bground .content {
@@ -419,9 +419,9 @@ main {
   height: 850px;
   border-radius: 8px;
   position: relative;
+  padding-top: 10px;
   background: #232323;
   color: white;
-  padding-top: 10px;
 }
 @media screen and (max-width: 766px) {
   .bground-2 .formValid {
