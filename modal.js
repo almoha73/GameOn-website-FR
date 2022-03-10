@@ -87,6 +87,7 @@ function formChange() {
   });
 }
 
+
 function messageOK(nodeElt, message) {
   nodeElt.innerHTML = message;
   nodeElt.style.color = '#70e000';
@@ -103,7 +104,7 @@ function error(nodeElt, message){
     if (prenom.value === "") {
       error(prenomHelp, `Veuillez renseigner votre prénom`)
       return false;
-    } else if (/^[a-zA-Zéè ]+$/.test(prenom.value) && prenom.value.length >= 2) {
+    } else if (/^[a-zA-Zéè ]+$/.test(prenom.value.trim()) && prenom.value.length >= 2) {
       messageOK(prenomHelp, `Prénom valide`)
       nom.focus();
       prenom.style.border = "2px solid #16d12f";
@@ -120,7 +121,7 @@ function valideNom() {
   if (nom.value === "") {
     error(nomHelp, `Veuillez renseigner votre nom`)
     return false;
-  } else if (/^[a-zA-Zéè ]+$/.test(nom.value) && nom.value.length >= 2) {
+  } else if (/^[a-zA-Zéè ]+$/.test(nom.value.trim()) && nom.value.length >= 2) {
     messageOK(nomHelp, `Nom valide`)
     mail.focus();
     nom.style.border = "2px solid #16d12f";
@@ -137,7 +138,7 @@ function valideMail() {
   if (mail.value === "") {
     error(mailHelp, `Le mail est obligatoire`)
     return false;
-  } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
+  } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value.trim())) {
     messageOK(mailHelp, `Mail valide`)
     birth.focus();
     mail.style.border = "2px solid #16d12f";
