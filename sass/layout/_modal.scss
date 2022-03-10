@@ -9,41 +9,39 @@
         animation-duration: 0.8s;
         overflow: hidden;
         @media screen and (max-width: 766px){
-                margin: 9vh auto 0;
+                margin: 8vh auto;
                 width: 100%;
                 border-radius: 8px 8px 0 0;;
         }
         @media screen and (max-width: 1036px) {
             z-index: 4;
-        }
-          
+        }  
         .modal-body {
             padding: 15px 8%;
             margin: 15px auto;
             @media screen and (max-width: 766px){
                 height: 650px;
-                padding: 10px 8%;
+                padding: 10px 6%;
+                margin: 0 auto;
             }
         }
         
     }
 }
-
+// modale de remerciement 
 .bground-2{
     @include abstracts.bground;
     .formValid{
         @include abstracts.bgroundContent;
-        
             @media screen and (max-width: 766px){
                 height: 620px; 
-                margin: 9vh auto 0;
+                margin: 8vh auto;
                 width: 100%;
                 border-radius: 8px 8px 0 0;;
             }
             @media screen and (max-width: 1036px) {
                 z-index: 5;
-            }
-              
+            } 
             .modal-body {
                 display: flex;
                 flex-direction: column;
@@ -250,7 +248,7 @@ p.text-label{
     
 }
 
-.close {
+.close {//croix de fermeture du formulaire d'inscription
     position: absolute;
     right: 15px;
     top: 15px;

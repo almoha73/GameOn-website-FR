@@ -35,8 +35,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 function launchModal() {
   modalbg.style.display = "block";
-  prenomHelp.innerHTML = `Veuillez renseigner votre prénom`;
-  prenomHelp.style.color = "white";
   focusBlur();
   closeForm();
 }
@@ -62,7 +60,7 @@ function focusBlur() {
     }
 
     function removeColor() {
-      inputField[i].style.border = "";
+      inputField[i].style.border = "none";
     }
   }
 }
@@ -95,7 +93,7 @@ function messageOK(nodeElt, message) {
 function error(nodeElt, message){
   nodeElt.innerHTML = message;
   nodeElt.style.color = "#fe142f";
-  nodeElt.style.border = "2px solid transparent";
+  
 }
 
 // Validations du prenom
@@ -114,6 +112,7 @@ function error(nodeElt, message){
       return false;
     }
   }
+  
 
   // Validation du nom
 
@@ -132,6 +131,7 @@ function valideNom() {
   }
 }
 
+
 // Validation du mail
 
 function valideMail() {
@@ -149,16 +149,16 @@ function valideMail() {
   }
 }
 
+
 // Validation de la date de naissance
 
 function valideBirth() {
   const birthday = new Date(birth.value);
-  const todayTime = new Date(); //date du jour
-  const dateMin = new Date(1920, 0, 1);
-  const ageMax = new Date(todayTime - 378432e6); 
+  const todayTime = new Date();
+  const dateMin = new Date(todayTime - 31536e8); // 100 ans
+  const ageMax = new Date(todayTime - 378432e6); // 12 ans
 
-  birthHelp.innerHtml = "champ obligatoire";
-
+  error(birthHelp, `Date de naissance invalide`)
   if (birthday > todayTime || birthday >= ageMax || birthday <= dateMin) {
     error(birthHelp, `Date de naissance invalide`)
     return false;
@@ -174,15 +174,17 @@ function valideBirth() {
   }
 }
 
+
 function valideQuantity() {
   if (quantity.value === "") {
     error(quantityHelp, `Champ obligatoire`);
   } else {
-    messageOK(quantityHelp, "Champ valide")
+    messageOK(quantityHelp, "Champ valide");
     quantity.style.border = "2px solid #16d12f";
     return true;
   }
 }
+
 
 function valideRadio() {
   let radioChecked = 0;
@@ -190,7 +192,6 @@ function valideRadio() {
   for (let i = 0; i < radio.length; i++) {
     if (radio[i].checked) {
       radioChecked++;
-
       if (radioChecked) {
         messageOK(radioHelp, `Vous avez choisi ${radio[i].value}`);
         return true;
@@ -199,8 +200,7 @@ function valideRadio() {
         return false;
       }
     }
-  }
-    
+  }   
 }
   
 valideRadio()
@@ -210,8 +210,7 @@ function valideConditions() {
   const obligatoire = document.querySelector(".obligatoire");
   error(obligatoire, `Obligatoire`);
   if (checkbox1.checked === true) {
-    obligatoire.innerHTML = `Merci !`;
-    obligatoire.style.color = "#16d12f";
+    messageOK(obligatoire, `Merci !`)
     return true;
   } else if (checkbox1 === false) {
     error(obligatoire, `Obligatoire`);
@@ -219,6 +218,8 @@ function valideConditions() {
   }
 }
 valideConditions();
+
+
 //Validation du formulaire
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -236,7 +237,7 @@ form.addEventListener("submit", (e) => {
     }, 1000);
   }else{
     for(let input of inputField){
-      if(input.value === ''){
+      if(!input.value){
         input.style.border = "2px solid #fe142f";
       } 
     } 
