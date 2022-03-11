@@ -36,7 +36,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 function launchModal() {;
   modalbg.style.display = "block";
-  focusBlur();
+  //focusBlur();
   closeForm();
 }
 
@@ -69,60 +69,47 @@ function resetField (){
   )
 }
 
-// Focus et Blur des 5 premiers input
-function focusBlur() {
-  for (let i = 0; i < inputField.length; i++) {
-    inputField[i].addEventListener("focus", addColor);
-    inputField[i].addEventListener("blur", removeColor);
+// function focusBlur(){
+//   for(let i = 0; i < inputField.length; i++){
+//     inputField[i].addEventListener('focus', addColor);
+//     inputField[i].addEventListener('blur', removeColor);
 
-    function addColor() {
-      inputField[i].style.border = "3px solid blue";
-    }
+//     function addColor(){
+//       inputField[i].style.border = '3px solid blue';
+//     }
 
-    function removeColor() {
-      inputField[i].style.border = "";
-    }
-  }
-}
+//     function removeColor(){
+//       inputField[i].style.border = 'none';
+//     }
+//   }  
+// }
 
 // fonction changement d'apparence du formumaire après validation
 
-
 function formChange() {
-  //close modal après validation
-  btnSubmit.addEventListener("click", () => {
     modalbg.style.display = "none";
     modalbg2.style.display = "block";
-  });
-  const btnCloseModal = document.querySelector(".btn-closeModal");
-  btnCloseModal.addEventListener("click", () => {
-    modalbg.style.display = "none";
-    modalbg2.style.display = "none";
-    setTimeout(() => {
-      location.reload();
-    }, 1000);   
-  });
 }
-
 
 function valideForm() {
   let error = 0;
   for (let i = 0; i < inputField.length; i++) {
     const type = inputField[i].getAttribute("id");
     let paragraphe = inputField[i].nextElementSibling;
+
     switch (type) {
       case "first":
         if (inputField[i].value === "" || inputField[i].value === null) {
-          errorMessage(paragraphe, `Veuillez renseigner votre prénom`, inputField[i]);
           error = error + 1;
+          errorMessage(paragraphe, `Veuillez inscrire vore prénom`, inputField[i]);
         } else if (
           /^[a-zA-Zéè ]+$/.test(inputField[i].value.trim()) &&
           inputField[i].value.length >= 2
         ) {
-          okMessage(paragraphe, `Prénom valide`, inputField[i]);
-          inputField[i + 1].focus(); 
+          okMessage(paragraphe, `Le prénom est valide`, inputField[i]);
         }else{
-          errorMessage(paragraphe, `Prénom invalide`, inputField[i]);
+          error = error + 1;
+          errorMessage(paragraphe, `Le prénom est invalide`, inputField[i]);
         }
         
         break;
@@ -140,6 +127,7 @@ function valideForm() {
           inputField[i + 1].focus();
         }else{
           errorMessage(paragraphe, `Nom invalide`, inputField[i]);
+          error = error + 1;
         }
 
         break;
@@ -154,8 +142,11 @@ function valideForm() {
             inputField[i].value.trim())){
               okMessage(paragraphe, `Mail valide`, inputField[i]);
               inputField[i + 1].focus();
+        }else{
+          errorMessage(paragraphe, `Le mail est invalide`, inputField[i]);
+          error = error + 1;
         }
-
+        
         break;
 
       case "birthdate":

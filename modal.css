@@ -728,11 +728,19 @@ p.text-label {
 }
 
 .red {
-  color: #fe142f;
+  color: #fe142f !important;
 }
 
 .green {
-  color: #70e000;
+  color: #70e000 !important;
+}
+
+.blue {
+  color: #3876ac !important;
+}
+
+.blueBorder {
+  border: 2px solid #3876ac !important;
 }
 
 footer {

@@ -282,10 +282,16 @@ p.text-label{
     border: 2px solid abstracts.$color-green!important;
 }
 .red{
-    color: abstracts.$color-septenary;
+    color: abstracts.$color-septenary!important;
 }
 .green{
-    color: abstracts.$color-green;
+    color: abstracts.$color-green!important;
+}
+.blue{
+    color: abstracts.$color-secondary!important;
+}
+.blueBorder{
+    border: 2px solid abstracts.$color-secondary!important;
 }
   
 
