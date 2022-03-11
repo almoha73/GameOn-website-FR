@@ -274,5 +274,18 @@ p.text-label{
             transform: rotate(-45deg);
           }
 }
+
+.redBorder{
+    border: 2px solid abstracts.$color-septenary!important;
+}
+.greenBorder{
+    border: 2px solid abstracts.$color-green!important;
+}
+.red{
+    color: abstracts.$color-septenary;
+}
+.green{
+    color: abstracts.$color-green;
+}
   
 

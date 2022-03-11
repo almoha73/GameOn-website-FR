@@ -29,22 +29,22 @@ let inputField = document.querySelectorAll("input.text-control");
 let allInput = document.querySelectorAll('input');
 let help = document.querySelectorAll(".help");
 let radioChecked = 0;
-console.log(help);
+
 
 // launch modal event
-btnSignUp.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-function launchModal() {
+function launchModal() {;
   modalbg.style.display = "block";
-  resetField();
   focusBlur();
+  closeForm();
 }
 
 // Fonction RESET après envoi du formulaire
 function resetField (){
   for(let i = 0; i < inputField.length; i++){
     inputField[i].value = "";
-    inputField[i].style.border = "transparent";
+    inputField[i].style.border = 'transparent';
     inputField[i].nextElementSibling.innerHTML = "";
   }
   radioHelp.innerHTML = '';
@@ -58,16 +58,15 @@ function resetField (){
 
 
  //Close modal formulaire avec la croix
-closeModal.forEach((btn) => btn.addEventListener("click", closeForm));
-function closeForm() {
-    modalbg.style.display = "none";
-    modalbg2.style.display = "none";
-};
-
-// Reset avec bouton btnSubmit
-
-function submitReset(){
-  btnSubmit.addEventListener('click', resetField);
+ function closeForm() {
+  closeModal.forEach((btn) => btn.addEventListener("click",  () => {
+        modalbg.style.display = 'none';
+        modalbg2.style.display = 'none';
+        setTimeout(() => {
+          location.reload();
+        }, 1000);  
+  })
+  )
 }
 
 // Focus et Blur des 5 premiers input
@@ -99,7 +98,9 @@ function formChange() {
   btnCloseModal.addEventListener("click", () => {
     modalbg.style.display = "none";
     modalbg2.style.display = "none";
-    
+    setTimeout(() => {
+      location.reload();
+    }, 1000);   
   });
 }
 
@@ -109,21 +110,21 @@ function valideForm() {
   for (let i = 0; i < inputField.length; i++) {
     const type = inputField[i].getAttribute("id");
     let paragraphe = inputField[i].nextElementSibling;
-    console.log(i);
-
     switch (type) {
       case "first":
         if (inputField[i].value === "" || inputField[i].value === null) {
-          message(paragraphe, `Veuillez renseigner votre prénom`, '#fe142f');
-          inputField[i].style.border = "2px solid #fe142f";
+          paragraphe.innerHTML = `Veuillez renseigner votre prénom`;
+          paragraphe.classList.add('red');
+          inputField[i].classList.add('redBorder');
           error = error + 1;
         } else if (
           /^[a-zA-Zéè ]+$/.test(inputField[i].value.trim()) &&
           inputField[i].value.length >= 2
         ) {
-          message(paragraphe, `Prénom valide`, '#70e000');
+          paragraphe.innerHTML = `Prénom valide`;
+          paragraphe.classList.add('green');
           inputField[i + 1].focus();
-          inputField[i].style.border = "2px solid #70e000";
+          inputField[i].classList.add('greenBorder');
           
         }
         
@@ -132,16 +133,18 @@ function valideForm() {
       case "last":
 
         if (inputField[i].value === "" || inputField[i].value === null) {
-          message(paragraphe, `Veuillez renseigner votre nom`, '#fe142f');
-          inputField[i].style.border = "2px solid #fe142f";
+          paragraphe.innerHTML = `Veuillez renseigner votre nom`;
+          paragraphe.classList.add('red');
+          inputField[i].classList.add('redBorder');
           error = error + 1;
         } else if (
           /^[a-zA-Zéè ]+$/.test(inputField[i].value.trim()) &&
           inputField[i].value.length >= 2
         ) {
-          message(paragraphe, `Nom valide`, '#70e000');
+          paragraphe.innerHTML = `Nom valide`;
+          paragraphe.classList.add('green');
           inputField[i + 1].focus();
-          inputField[i].style.border = "2px solid #70e000";
+          inputField[i].classList.add('greenBorder');
           
         }
 
@@ -150,15 +153,17 @@ function valideForm() {
       case "email":
 
         if (inputField[i].value === "" || inputField[i].value === null) {
-          message(paragraphe, `Le mail est obligatoire`, '#fe142f');
-          inputField[i].style.border = "2px solid #fe142f";
+          paragraphe.innerHTML = `Le mail est obligatoire`;
+          paragraphe.classList.add('red');
+          inputField[i].classList.add('redBorder');
           error = error + 1;
         } else if (
           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
             inputField[i].value.trim())){
-              message(paragraphe, `Mail valide`, '#70e000');
+              paragraphe.innerHTML = `Mail valide`;
+              paragraphe.classList.add('green');
               inputField[i + 1].focus();
-              inputField[i].style.border = "2px solid #70e000";
+              inputField[i].classList.add('greenBorder');
               
         }
 
@@ -170,20 +175,23 @@ function valideForm() {
         const dateMin = new Date(1920, 0, 1);
         const ageMax = new Date(todayTime - 315576e5 * 12); //.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
        
-        message(paragraphe, `Le champ est obligatoire`, '#fe142f');
-        inputField[i].style.border = "2px solid #fe142f";
+        paragraphe.innerHTML = `Le champ est obligatoire`;
+        paragraphe.classList.add('red');
+        inputField[i].classList.add('redBorder');
         if (birthday > todayTime || birthday >= ageMax || birthday <= dateMin) {
-          message(paragraphe, `Le champ est invalide`, '#fe142f');
-          inputField[i].style.border = "2px solid #fe142f";
+          paragraphe.innerHTML =  `Le champ est invalide`;
+          paragraphe.classList.add('red');
+          inputField[i].classList.add('redBorder');
           error = error + 1;
         } else if (
           birthday < todayTime &&
           birthday <= ageMax &&
           birthday >= dateMin
         ) {
-          message(paragraphe, `Date de naissance valide`, '#70e000');
+          paragraphe.innerHTML = `Date de naissance valide`;
+          paragraphe.classList.add('green');
           inputField[i + 1].focus();
-          inputField[i].style.border = "2px solid #70e000";
+          inputField[i].classList.add('greenBorder');
           
         }
 
@@ -191,12 +199,14 @@ function valideForm() {
 
       case "quantity":
         if (inputField[i].value === "" || inputField[i].value === null) {
-          message(paragraphe, `Le champ est invalide`, '#fe142f');
-          inputField[i].style.border = "2px solid #fe142f";
+          paragraphe.innerHTML = `Le champ est invalide`;
+          paragraphe.classList.add('red');
+          inputField[i].classList.add('redBorder');
           error = error + 1;
         } else {
-          message(paragraphe, 'Champ valide', "#70e000");
-          inputField[i].style.border = "2px solid #16d12f";
+          paragraphe.innerHTML = 'Champ valide';
+          paragraphe.classList.add('green');
+          inputField[i].classList.add('greenBorder');
           
         }
 
@@ -251,7 +261,5 @@ form.addEventListener("submit", (e) => {
       formChange();
     }, 1000);
     closeForm();
-    submitReset();
   }
-  
 })
