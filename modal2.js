@@ -18,14 +18,14 @@ const btnSubmit = document.querySelector(".btn-submit");
 const btnCloseModal = document.querySelector('.btn-closeModal');
 const form = document.querySelector("form");
 const closeModal = document.querySelectorAll(".close");
-const radio = document.querySelectorAll(".checkbox-input");
+const radio = document.getElementsByName('location');
 const radioHelp = document.querySelector(".radioHelp");
 const obligatoire = document.querySelector(".obligatoire");
 let inputField = document.querySelectorAll("input.text-control");
 let allInput = document.querySelectorAll('input');
 let help = document.querySelectorAll(".help");
-let radioChecked = 0;
 
+console.log(radio);
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -40,8 +40,10 @@ function launchModal() {;
 function resetField (){
   for(let i = 0; i < inputField.length; i++){
     inputField[i].value = "";
-    inputField[i].style.border = 'transparent';
+    inputField[i].classList.remove('redBorder');
+    inputField[i].classList.remove('greenBorder');
     inputField[i].nextElementSibling.innerHTML = "";
+    
   }
   radioHelp.innerHTML = '';
   obligatoire.innerHTML = '';
@@ -59,7 +61,7 @@ function resetField (){
         modalbg.style.display = 'none';
         modalbg2.style.display = 'none';
         setTimeout(() => {
-          location.reload();
+          resetField()
         }, 1000);  
   }))
  }
@@ -70,7 +72,7 @@ function resetField (){
       modalbg.style.display = 'none';
         modalbg2.style.display = 'none';
         setTimeout(() => {
-          location.reload();
+          resetField();
         }, 1000);  
     })
  }
@@ -132,6 +134,7 @@ function valideForm() {
       case "last":
 
         if (inputField[i].value === "" || inputField[i].value === null) {
+          okMessageRemove(paragraphe, inputField[i]);
           errorMessage(paragraphe, `Veuillez renseigner votre nom`, inputField[i]);
           error = error + 1;
         } else if (
@@ -154,7 +157,7 @@ function valideForm() {
       case "email":
 
         if (inputField[i].value === "" || inputField[i].value === null) {
-          
+          okMessageRemove(paragraphe, inputField[i]);
           errorMessage(paragraphe, `Le mail est obligatoire`, inputField[i]);
           error = error + 1;
         } else if (
@@ -178,6 +181,7 @@ function valideForm() {
         const todayTime = new Date(); //.toISOString().split('T')[0];
         const dateMin = new Date(1920, 0, 1);
         const ageMax = new Date(todayTime - 315576e5 * 12); //.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
+        okMessageRemove(paragraphe, inputField[i]);
         errorMessage(paragraphe, `Le champ est obligatoire`, inputField[i]);
         if (birthday > todayTime || birthday >= ageMax || birthday <= dateMin) {
           inputField[i].classList.remove('blueBorder');
@@ -217,22 +221,20 @@ function valideForm() {
 }
 
 function valideRadio() {  
-  for (let i = 0; i < radio.length; i++) {
-    if (radio[i].checked) {
-      radioChecked++;
-      break;
+  radioHelp.innerHTML = `Vous devez faire un choix`;
+  radioHelp.classList.add('red');
+    for(let rad of radio) {
+      if(rad.checked){
+        radioHelp.innerHTML = `Vous avez choisi ${rad.value}`;
+        radioHelp.classList.remove('red');
+        radioHelp.classList.add('green'); 
+        return true;  
+      }
     }
   }
-  if (radioChecked) {
-    radioHelp.innerHTML =  "Vous avez choisi";
-    radioHelp.classList.add('green');
-    return true;
-  } else {
-    radioHelp.innerHTML = `Vous devez cocher un choix`;
-    radioHelp.classList.add('red');
-    return false;
-  }
-}
+ 
+
+valideRadio();
 
 function valideConditions() {
   const checkbox1 = document.querySelector("#checkbox1");
@@ -242,11 +244,13 @@ function valideConditions() {
     obligatoire.classList.add('green');
     return true;
   } else{
-    obligatoire, `obligatoire`;
+    obligatoire.innerHTML = `obligatoire`;
     obligatoire.classList.add('red');
     return false;
   }
 }
+
+valideConditions();
 
 function errorMessage(nodeElt, message, input) {
   nodeElt.innerHTML = message;
