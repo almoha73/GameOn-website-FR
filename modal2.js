@@ -45,8 +45,12 @@ function resetField (){
     inputField[i].nextElementSibling.innerHTML = "";
     
   }
-  radioHelp.innerHTML = '';
-  obligatoire.innerHTML = '';
+  radioHelp.innerHTML = `Vous devez faire un choix`;
+  radioHelp.classList.remove('green');
+  radioHelp.classList.add('red');
+  obligatoire.innerHTML = `obligatoire`;
+  obligatoire.classList.remove('green');
+  obligatoire.classList.add('red');
   for( let oneRadio of radio){
       oneRadio.checked = false;
   }
@@ -233,12 +237,12 @@ function valideRadio() {
     }
   }
  
-
 valideRadio();
 
 function valideConditions() {
   const checkbox1 = document.querySelector("#checkbox1");
-  
+  obligatoire.innerHTML = `obligatoire`;
+  obligatoire.classList.add('red');
   if (checkbox1.checked === true) {
     obligatoire.innerHTML = "Merci !";
     obligatoire.classList.add('green');
