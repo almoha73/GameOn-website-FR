@@ -719,28 +719,24 @@ p.text-label {
   transform: rotate(-45deg);
 }
 
-.redBorder {
-  border: 2px solid #fe142f !important;
-}
-
-.greenBorder {
+.text-control.greenBorder {
   border: 2px solid #70e000 !important;
 }
 
+.text-control.redBorder {
+  border: 2px solid #fe142f;
+}
+
 .red {
-  color: #fe142f !important;
+  color: #fe142f;
 }
 
 .green {
-  color: #70e000 !important;
+  color: #70e000;
 }
 
-.blue {
-  color: #3876ac !important;
-}
-
-.blueBorder {
-  border: 2px solid #3876ac !important;
+.text-control.blueBorder {
+  border: 3px solid #12a8d6;
 }
 
 footer {
