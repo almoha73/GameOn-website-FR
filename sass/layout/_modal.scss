@@ -5,6 +5,7 @@
     .content {
         @include abstracts.bgroundContent;
         width: 100%;
+        height: auto;
         animation-name: modalopen;
         animation-duration: 0.8s;
         overflow: hidden;
@@ -31,6 +32,7 @@
 // modale de remerciement 
 .bground-2{
     @include abstracts.bground;
+    
     .formValid{
         @include abstracts.bgroundContent;
             @media screen and (max-width: 1036px) {

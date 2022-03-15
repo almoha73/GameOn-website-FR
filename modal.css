@@ -368,13 +368,14 @@ main {
 .bground .content {
   margin: 2% auto;
   max-width: 500px;
-  max-height: 850px;
+  height: 850px;
   border-radius: 8px;
   position: relative;
   padding-top: 10px;
   background: #232323;
   color: white;
   width: 100%;
+  height: auto;
   animation-name: modalopen;
   animation-duration: 0.8s;
   overflow: hidden;
@@ -417,7 +418,7 @@ main {
 .bground-2 .formValid {
   margin: 2% auto;
   max-width: 500px;
-  max-height: 850px;
+  height: 850px;
   border-radius: 8px;
   position: relative;
   padding-top: 10px;
