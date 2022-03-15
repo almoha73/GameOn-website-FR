@@ -21,6 +21,8 @@ const closeModal = document.querySelectorAll(".close");
 const radio = document.getElementsByName('location');
 const radioHelp = document.querySelector(".radioHelp");
 const obligatoire = document.querySelector(".obligatoire");
+let label = document.querySelectorAll('label');
+console.log(label);
 let inputField = document.querySelectorAll("input.text-control");
 let allInput = document.querySelectorAll('input');
 let help = document.querySelectorAll(".help");
@@ -104,6 +106,19 @@ function formChange() {
     modalbg.style.display = "none";
     modalbg2.style.display = "block";
 }
+
+// Fonction clic sur label = focus sur input
+function labelFocus(){
+  label.forEach(lab => {
+    lab.addEventListener('click', () => {
+        lab.nextElementSibling.focus();
+    })
+    })
+  }
+labelFocus();
+
+
+// Fonction validation des 5 premiers champs
 
 function valideForm() {
   let error = 0;

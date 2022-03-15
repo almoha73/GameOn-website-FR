@@ -368,7 +368,7 @@ main {
 .bground .content {
   margin: 2% auto;
   max-width: 500px;
-  height: 850px;
+  max-height: 850px;
   border-radius: 8px;
   position: relative;
   padding-top: 10px;
@@ -417,12 +417,17 @@ main {
 .bground-2 .formValid {
   margin: 2% auto;
   max-width: 500px;
-  height: 850px;
+  max-height: 850px;
   border-radius: 8px;
   position: relative;
   padding-top: 10px;
   background: #232323;
   color: white;
+}
+@media screen and (max-width: 1036px) {
+  .bground-2 .formValid {
+    z-index: 5;
+  }
 }
 @media screen and (max-width: 766px) {
   .bground-2 .formValid {
@@ -432,9 +437,9 @@ main {
     border-radius: 8px 8px 0 0;
   }
 }
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 320px) {
   .bground-2 .formValid {
-    z-index: 5;
+    height: 530px;
   }
 }
 .bground-2 .formValid .modal-body {
@@ -468,13 +473,25 @@ form .formData1 label, form .formData label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 10px;
-  margin-top: 17px;
+  margin-top: 7px;
 }
-@media screen and (max-width: 766px) {
+@media screen and (max-width: 1036px) {
+  form .formData1 label, form .formData label {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 375px) {
   form .formData1 label, form .formData label {
     margin-bottom: 0px;
-    font-size: 12px;
-    margin-top: 7px;
+    margin-top: 0;
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  form .formData1 label, form .formData label {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 10px;
   }
 }
 form .formData1 input, form .formData input {
@@ -495,6 +512,13 @@ form .formData1 input.text-control, form .formData input.text-control {
     height: 38px;
   }
 }
+@media screen and (max-width: 320px) {
+  form .formData1 input.text-control, form .formData input.text-control {
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+  }
+}
 form .formData1 p.help, form .formData p.help {
   width: 100%;
   height: 12px;
@@ -507,10 +531,27 @@ form .formData1 p.help, form .formData p.help {
     font-size: 11px;
   }
 }
+@media screen and (max-width: 375px) {
+  form .formData1 p.help, form .formData p.help {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  form .formData1 p.help, form .formData p.help {
+    margin-top: 0;
+    font-size: 10px;
+  }
+}
 form .formData1 span.radioHelp, form .formData span.radioHelp {
   font-size: 10px;
   line-height: 35px;
-  margin: auto;
+  margin-left: 20px;
+}
+@media screen and (max-width: 375px) {
+  form .formData1 span.radioHelp, form .formData span.radioHelp {
+    display: none;
+    line-height: 10px;
+  }
 }
 
 @media screen and (max-width: 766px) {
@@ -531,7 +572,7 @@ form .formData .checkbox-label,
 form .formData .checkbox2-label {
   display: inline-block;
   position: relative;
-  margin-left: 20px;
+  margin-left: 30px;
   font-size: 12px;
   font-weight: normal;
 }
@@ -544,10 +585,9 @@ form .formData .checkbox2-label {
     margin-right: 2px;
   }
 }
-@media screen and (min-width: 766px) {
+@media screen and (max-width: 320px) {
   form .formData .checkbox-label[for^=location] {
-    width: 70px;
-    margin-top: 5px;
+    font-size: 10px;
   }
 }
 form .formData .checkbox-label[for^=location2] {
@@ -564,6 +604,11 @@ form .formData .checkbox2-label[for^=checkbox] {
 @media screen and (max-width: 766px) {
   form .formData .checkbox2-label[for^=checkbox] {
     margin-top: 0px;
+  }
+}
+@media screen and (max-width: 375px) {
+  form .formData .checkbox2-label[for^=checkbox] {
+    font-size: 10px;
   }
 }
 form .formData .checkbox-label .checkbox-icon, form .formData .checkbox2-label .checkbox-icon {
@@ -651,6 +696,16 @@ p.text-label {
     margin-bottom: 0px;
   }
 }
+@media screen and (max-width: 375px) {
+  p.text-label {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 320px) {
+  p.text-label {
+    font-size: 10px;
+  }
+}
 
 .checkbox2-label {
   margin-bottom: 0;
@@ -660,6 +715,11 @@ p.text-label {
   font-size: 10px;
   display: inline-block;
   margin-left: 20px;
+}
+@media screen and (max-width: 374px) {
+  .obligatoire {
+    display: none;
+  }
 }
 
 .btn-submit, .btn-close {
