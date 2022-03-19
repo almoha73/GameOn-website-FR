@@ -25,8 +25,8 @@
     "to-regex-range": "^5.0.1"
   },
   "scripts": {
-    "sass": "sass sass/main.scss modal.css -w ",
-    "prefix": "postcss modal.css --use autoprefixer -d ./css/"
+    "sass": "sass sass/main.scss css/modal.css -w ",
+    "prefix": "postcss css/modal.css --use autoprefixer -d ./css/"
   },
   "repository": {
     "type": "git",
