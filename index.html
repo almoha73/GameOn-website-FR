@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
@@ -72,31 +72,31 @@
               <form name="reserve" action="index.html" method="get">
                 <div class="formData1" >
                   <label>Prénom</label>
-                  <input class="text-control" type="text" id="first" name="first" tabindex="0"/>
+                  <input class="text-control" type="text" id="first" name="first" tabindex="10"/>
                   <p class=" help prenomHelp"></p>
                 </div>
                 
                 <div class="formData1" >
                   <label>Nom</label>
-                  <input class="text-control" type="text" id="last" name="last" tabindex="1"/>
+                  <input class="text-control" type="text" id="last" name="last" tabindex="20"/>
                   <p class=" help nomHelp"></p> 
                 </div>    
                      
                 <div class="formData1" >
                   <label>E-mail</label>
-                  <input class="text-control" type="text" id="email" name="email" tabindex="2"/> 
+                  <input class="text-control" type="text" id="email" name="email" tabindex="30"/> 
                   <p class=" help mailHelp"></p>
                 </div>
 
                 <div  class="formData">
                   <label>Date de naissance</label>
-                  <input class="text-control" type="date" id="birthdate" name="birthdate" tabindex="3"/>
+                  <input class="text-control" type="date" id="birthdate" name="birthdate" tabindex="40"/>
                   <p class=" help birthHelp"></p>
                 </div>
 
                 <div class="formData" >
                   <label>À combien de tournois <span class="GameOn">GameOn</span> avez-vous déjà participé ?</label>
-                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" tabindex="4">
+                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" tabindex="50">
                   <p class=" help quantityHelp"></p>
                 </div>
 
@@ -162,6 +162,6 @@
         </p>
       </footer>
 
-    <script src="modal2.js"></script>
+    <script src="js/modal.js"></script>
   </body>
 </html>
