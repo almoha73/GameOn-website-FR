@@ -128,7 +128,7 @@ function valideForm() {
 
     switch (type) {
       case "first":
-        if (inputField[i].value === "" || inputField[i].value === null) {
+        if (inputField[i].value === "") {
           error = error + 1;
           inputField[i].classList.remove('blueBorder');
           okMessageRemove(paragraphe, inputField[i]);
@@ -152,7 +152,7 @@ function valideForm() {
 
       case "last":
 
-        if (inputField[i].value === "" || inputField[i].value === null) {
+        if (inputField[i].value === ""){
           okMessageRemove(paragraphe, inputField[i]);
           errorMessage(paragraphe, `Veuillez renseigner votre nom`, inputField[i]);
           error = error + 1;
@@ -175,12 +175,12 @@ function valideForm() {
 
       case "email":
 
-        if (inputField[i].value === "" || inputField[i].value === null) {
+        if (inputField[i].value === "") {
           okMessageRemove(paragraphe, inputField[i]);
           errorMessage(paragraphe, `Le mail est obligatoire`, inputField[i]);
           error = error + 1;
         } else if (
-          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+          /^\w+([\.-]?\w+)*@\w+([\-]?\w+)*\.(\w{2,3})+$/.test(
             inputField[i].value.trim())){
               inputField[i].classList.remove('blueBorder');
               errorMessageRemove(paragraphe, inputField[i]);
@@ -197,9 +197,9 @@ function valideForm() {
 
       case "birthdate":
         const birthday = new Date(inputField[i].value);
-        const todayTime = new Date(); //.toISOString().split('T')[0];
-        const dateMin = new Date(1920, 0, 1);
-        const ageMax = new Date(todayTime - 315576e5 * 12); //.toISOString().split('T')[0] // 12 ans depuis aujourd'hui
+        const todayTime = new Date(); 
+        const dateMin = new Date(1922, 0, 1);
+        const ageMax = new Date(todayTime - 315576e5 * 12); // 12 ans depuis aujourd'hui
         okMessageRemove(paragraphe, inputField[i]);
         errorMessage(paragraphe, `Le champ est obligatoire`, inputField[i]);
         if (birthday > todayTime || birthday >= ageMax || birthday <= dateMin) {
@@ -221,7 +221,7 @@ function valideForm() {
         break;
 
       case "quantity":
-        if (inputField[i].value === "" || inputField[i].value === null) {
+        if (inputField[i].value === "" || inputField[i].value < 0 || inputField[i].value > 100) {
           inputField[i].classList.remove('blueBorder');
           okMessageRemove(paragraphe, inputField[i]);
           errorMessage(paragraphe, `Le champ est invalide`, inputField[i]);
