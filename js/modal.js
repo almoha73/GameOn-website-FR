@@ -13,19 +13,14 @@ const modalbg = document.querySelector(".bground");
 const modalbg2 = document.querySelector(".bground-2");
 const modal = document.querySelector(".modal-body");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const btnSignUp = document.querySelectorAll(".btn-signup");
-const btnSubmit = document.querySelector(".btn-submit");
 const btnCloseModal = document.querySelector('.btn-closeModal');
 const form = document.querySelector("form");
 const closeModal = document.querySelectorAll(".close");
 const radio = document.getElementsByName('location');
 const radioHelp = document.querySelector(".radioHelp");
 const obligatoire = document.querySelector(".obligatoire");
-let label = document.querySelectorAll('label');
-console.log(label);
 let inputField = document.querySelectorAll("input.text-control");
-let allInput = document.querySelectorAll('input');
-let help = document.querySelectorAll(".help");
+
 
 console.log(radio);
 
@@ -35,7 +30,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {;
   modalbg.style.display = "block";
   focusBlur();
-  closeForm();
+  
 }
 
 // Fonction RESET après envoi du formulaire
@@ -62,18 +57,18 @@ function resetField (){
 
 
  //Close modal formulaire avec la croix
- function closeForm() {
+ 
   closeModal.forEach((btn) => btn.addEventListener("click",  () => {
         modalbg.style.display = 'none';
         modalbg2.style.display = 'none';
         setTimeout(() => {
           resetField()
         }, 1000);  
-  }))
- }
+  }));
 
- //Close modal formulaire avec le bouton
- function closeFormButton(){
+
+ //Close modal formulaire avec le bouton "fermer"
+ 
     btnCloseModal.addEventListener('click', () => {
       modalbg.style.display = 'none';
         modalbg2.style.display = 'none';
@@ -81,7 +76,7 @@ function resetField (){
           resetField();
         }, 1000);  
     })
- }
+ 
 
 function focusBlur(){
   for(let i = 0; i < inputField.length; i++){
@@ -107,16 +102,6 @@ function formChange() {
     modalbg2.style.display = "block";
 }
 
-// Fonction clic sur label = focus sur input
-function labelFocus(){
-  label.forEach(lab => {
-    lab.addEventListener('click', () => {
-        lab.nextElementSibling.focus();
-    })
-    })
-  }
-labelFocus();
-
 
 // Fonction validation des 5 premiers champs
 
@@ -138,7 +123,7 @@ function valideForm() {
           inputField[i].value.length >= 2
         ) {
           inputField[i].classList.remove('blueBorder');
-          errorMessageRemove(paragraphe, inputField[i]);
+          okMessageRemove(paragraphe, inputField[i]);
           okMessage(paragraphe, `Le prénom est valide`, inputField[i]);
           inputField[i + 1].focus();
         }else{
@@ -161,7 +146,7 @@ function valideForm() {
           inputField[i].value.length >= 2
         ) {
           inputField[i].classList.remove('blueBorder');
-          errorMessageRemove(paragraphe, inputField[i])
+          okMessageRemove(paragraphe, inputField[i]);
           okMessage(paragraphe, `Nom valide`, inputField[i]);
           inputField[i + 1].focus();
         }else{
@@ -183,7 +168,7 @@ function valideForm() {
           /^\w+([\.-]?\w+)*@\w+([\-]?\w+)*\.(\w{2,3})+$/.test(
             inputField[i].value.trim())){
               inputField[i].classList.remove('blueBorder');
-              errorMessageRemove(paragraphe, inputField[i]);
+              okMessageRemove(paragraphe, inputField[i]);
               okMessage(paragraphe, `Mail valide`, inputField[i]);
               inputField[i + 1].focus();
         }else{
@@ -213,7 +198,7 @@ function valideForm() {
           birthday >= dateMin
         ) {
           inputField[i].classList.remove('blueBorder');
-          errorMessageRemove(paragraphe, inputField[i]);
+          okMessageRemove(paragraphe, inputField[i]);
           okMessage(paragraphe, `Date de naissance valide`, inputField[i]);
           inputField[i + 1].focus();
         }
@@ -228,7 +213,7 @@ function valideForm() {
           error = error + 1;
         } else {
           inputField[i].classList.remove('blueBorder');
-          errorMessageRemove(paragraphe, inputField[i]);
+          okMessageRemove(paragraphe, inputField[i]);
           okMessage(paragraphe, `Champ valide`, inputField[i])
         }
 
@@ -288,13 +273,6 @@ function okMessageRemove(nodeElt, input){
   input.classList.remove('greenBorder')
 }
 
-function errorMessageRemove(nodeElt, input){
-  nodeElt.classList.remove('green');
-  input.classList.remove('greenBorder');
-  
-}
-
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (
@@ -305,7 +283,6 @@ form.addEventListener("submit", (e) => {
     setTimeout(() => {
       formChange();
     }, 1000);
-    closeForm();
-    closeFormButton();
+    
   }
 })
